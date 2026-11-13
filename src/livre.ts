@@ -679,8 +679,8 @@ function desenhaMapa() {
   return { mapa: c, soltos, rio, aves }
 }
 
-/** Foto da fortaleza inteira, com todo mundo no seu lugar e o nome das zonas. Em dobro, como a tela do jogo. Com `eu`, marca onde Henrido está. */
-export function mapaInteiro(eu?: [number, number]) {
+/** Foto da fortaleza inteira, com todo mundo no seu lugar e o nome das zonas. Em dobro, como a tela do jogo. Com `eu`, marca onde Henrido está e o que ele já coletou. */
+export function mapaInteiro(eu?: [number, number], coletados = new Set<string>()) {
   const { mapa, soltos, rio, aves } = desenhaMapa()
   const c = Object.assign(document.createElement('canvas'), { width: mapa.width * 2, height: mapa.height * 2 })
   const ctx = c.getContext('2d')!
@@ -705,15 +705,10 @@ export function mapaInteiro(eu?: [number, number]) {
     ctx.fillStyle = '#ffd23b'
     ctx.fillText(nome, sx, sy)
   }
-  if (eu) {
-    ctx.fillStyle = '#ff3b2f'
-    ctx.strokeStyle = '#fff'
-    ctx.lineWidth = 8 // o mapa aparece a ~1/5 do tamanho
-    ctx.beginPath()
-    ctx.arc((eu[0] * T + 8) * 2, (eu[1] * T + 8) * 2, 36, 0, 7)
-    ctx.fill()
-    ctx.stroke()
-  }
+  // marcadores grandes, o mapa aparece a ~1/5 do tamanho: ingredientes já coletados e, por cima, a cabeça de Henrido
+  const marca = (g: Grid, tx: number, ty: number, k: number) => ctx.drawImage(sprite(g), (tx * T + 8) * 2 - g[0].length * k / 2, (ty * T + 8) * 2 - g.length * k / 2, g[0].length * k, g.length * k)
+  for (const g of INGREDIENTES) if (coletados.has(g.s)) marca(icone(g.s), g.x, g.y, 5)
+  if (eu) marca(retrato(HENRIDO).slice(0, 10), eu[0], eu[1], 8) // só cabeça e barba
   return c
 }
 
@@ -782,7 +777,7 @@ export function modoLivre(palco: HTMLElement, aoVencer: (segundos: number) => vo
   const alternaMapa = () => {
     segurando.length = 0
     telaMapa.hidden = mapaAberto()
-    if (mapaAberto()) telaMapa.replaceChildren(mapaInteiro([x, y]))
+    if (mapaAberto()) telaMapa.replaceChildren(mapaInteiro([x, y], coletados))
   }
   palco.querySelector('.abre-mapa')!.addEventListener('click', alternaMapa, opt)
   telaMapa.addEventListener('click', alternaMapa, opt)
