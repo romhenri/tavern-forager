@@ -253,11 +253,16 @@ button { font: inherit; color: inherit; }
 .dpad [data-dir=ArrowLeft] { grid-area: 2 / 1; }
 .dpad [data-dir=ArrowRight] { grid-area: 2 / 3; }
 .dpad [data-dir=ArrowDown] { grid-area: 3 / 2; }
+.dpad .diag { display: none; width: 16px; height: 16px; place-self: center; font-size: 9px; line-height: 1; } /* diagonais menores, nos cantos, só no toque */
+.dpad [data-dir="ArrowUp ArrowLeft"] { grid-area: 1 / 1; }
+.dpad [data-dir="ArrowUp ArrowRight"] { grid-area: 1 / 3; }
+.dpad [data-dir="ArrowDown ArrowLeft"] { grid-area: 3 / 1; }
+.dpad [data-dir="ArrowDown ArrowRight"] { grid-area: 3 / 3; }
 .mapa { display: grid; gap: 6px; justify-items: center; }
 .mapa .painel-titulo { justify-self: stretch; margin: 0; }
 .mapa .painel-titulo .btn { padding: 1px 4px; min-height: 0; }
 .mapa canvas { display: block; height: 310px; width: auto; border: 2px solid #1b1410; } /* a fortaleza inteira cabe no painel */
-@media (pointer: coarse) { .dpad, .interagir, .mao { zoom: 2; opacity: .3; } } /* dedo precisa de botão maior, mas sem tampar o mapa */
+@media (pointer: coarse) { .dpad, .interagir, .mao { zoom: 2; opacity: .3; } .dpad .diag { display: grid; place-items: center; } } /* dedo precisa de botão maior, mas sem tampar o mapa */
 .hud { opacity: .6; position: absolute; bottom: 8px; left: 50%; translate: -50% 0; display: flex; gap: 4px; padding: 3px 6px; background: #000a; border: 2px solid #1b1410; }
 .hud span:not(.coletado) svg { filter: brightness(0) invert(.4); } /* silhueta até coletar */
 .hud .coletado svg { animation: entra .3s; }

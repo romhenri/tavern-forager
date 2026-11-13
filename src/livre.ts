@@ -853,6 +853,7 @@ const CAMA_MARIANA: [number, number] = [36, 1] // cama do dormitório onde a Mar
 const SONO = 3000 // ms dormindo na cama
 const LOURO = [47, 29]
 const ARISCO = [51, 29] // o terceiro papagaio, o verde: espantado, voa embora // o papagaio vermelho, o único que fala
+const DIAGONAIS = { 'ArrowUp ArrowLeft': '◤', 'ArrowUp ArrowRight': '◥', 'ArrowDown ArrowLeft': '◣', 'ArrowDown ArrowRight': '◢' } // botões do celular
 const DIRECAO: Record<string, [number, number]> = {
   ArrowUp: [0, -1], ArrowDown: [0, 1], ArrowLeft: [-1, 0], ArrowRight: [1, 0],
   w: [0, -1], s: [0, 1], a: [-1, 0], d: [1, 0],
@@ -886,7 +887,7 @@ export function modoLivre(palco: HTMLElement, aoVencer: (segundos: number) => vo
     <div class="mapa-jogo cortina" hidden></div>
     <button class="btn interagir" aria-label="Interact (E or Space)"><b>E</b></button>
     <div class="mao" title="No tool"></div>
-    <div class="dpad">${['ArrowUp', 'ArrowLeft', 'ArrowRight', 'ArrowDown'].map((k) => `<button class="btn" data-dir="${k}" aria-label="${k}">${{ ArrowUp: '▲', ArrowLeft: '◀', ArrowRight: '▶', ArrowDown: '▼' }[k]}</button>`).join('')}</div>`
+    <div class="dpad">${['ArrowUp', 'ArrowLeft', 'ArrowRight', 'ArrowDown'].map((k) => `<button class="btn" data-dir="${k}" aria-label="${k}">${{ ArrowUp: '▲', ArrowLeft: '◀', ArrowRight: '▶', ArrowDown: '▼' }[k]}</button>`).join('')}${Object.entries(DIAGONAIS).map(([k, seta]) => `<button class="btn diag" data-dir="${k}" aria-label="${k}">${seta}</button>`).join('')}</div>`
   const ctx = palco.querySelector('canvas')!.getContext('2d')!
   const balao = palco.querySelector<HTMLElement>('.balao')!
   const { mapa, soltos, rio, lavas, aves } = desenhaMapa()
@@ -977,9 +978,9 @@ export function modoLivre(palco: HTMLElement, aoVencer: (segundos: number) => vo
   addEventListener('keyup', (e) => segurando.splice(segurando.indexOf(e.key.length === 1 ? e.key.toLowerCase() : e.key) >>> 0, 1), opt)
   addEventListener('blur', () => (segurando.length = 0), opt)
   palco.querySelectorAll<HTMLElement>('[data-dir]').forEach((b) => {
-    const k = b.dataset.dir!
-    b.addEventListener('pointerdown', (e) => (e.preventDefault(), segurando.includes(k) || segurando.push(k)), opt)
-    for (const ev of ['pointerup', 'pointerleave', 'pointercancel']) b.addEventListener(ev, () => segurando.splice(segurando.indexOf(k) >>> 0, 1), opt)
+    const ks = b.dataset.dir!.split(' ') // diagonal segura as duas setas juntas
+    b.addEventListener('pointerdown', (e) => (e.preventDefault(), ks.forEach((k) => segurando.includes(k) || segurando.push(k))), opt)
+    for (const ev of ['pointerup', 'pointerleave', 'pointercancel']) b.addEventListener(ev, () => ks.forEach((k) => segurando.splice(segurando.indexOf(k) >>> 0, 1)), opt)
   })
 
   // o anão atravessa gente e bicho; só parede, objetos e os grandes (dragão e cavalo) bloqueiam
