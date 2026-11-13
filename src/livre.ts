@@ -87,7 +87,7 @@ export const LOCAL: Record<string, [number, number]> = {
   formigas: [89, 33], // formigueiro
 }
 
-/** Um de cada, cada um onde o sabor dele manda. O mel não fica no chão: sai da colmeia do meio. Cevada, cogumelo e bagas saem de qualquer pé do mapa (`tile`), que some ao ser colhido; x, y é só um deles. */
+/** Um de cada, cada um onde o sabor dele manda. O mel não fica no chão: sai da colmeia do meio. Cevada, cogumelo e bagas saem de qualquer pé do mapa (`tile`); trigo e cogumelo somem ao ser colhidos, o arbusto fica sem frutinha; x, y é só um deles. */
 export const INGREDIENTES = [
   { s: 'g', nome: 'Mushrooms', x: 2, y: 40, tile: 'g' }, // cogumelos
   { s: 'c', nome: 'Black Barley', x: 32, y: 32, tile: 'c' }, // fazenda
@@ -130,9 +130,7 @@ const ZONAS: [string, number, number][] = [
 const SALAS: [string, number, number, number][] = [
 ]
 
-/** Arbustos colhidos nesta partida: viram chão. */
-const colhidos = new Set<string>()
-export const andavel = (x: number, y: number) => colhidos.has(String([x, y])) || !SOLIDO.includes(MAPA[y]?.[x] ?? '#')
+export const andavel = (x: number, y: number) => !SOLIDO.includes(MAPA[y]?.[x] ?? '#')
 
 // ---------------------------------------------------------------- desenho
 
@@ -250,7 +248,7 @@ const CERCA_V = compose([[
   '......kN', '......kN', '.....kkn', '.....knn', '.....kkn', '......kN', '......kN', '......kN',
   '......kN', '......kN', '.....kkn', '.....knn', '.....kkn', '......kN', '......kN', '......kN',
 ]], MADEIRA)
-const ARBUSTO = compose([[
+const FOLHAGEM = [
   '....kkkk.kkkk...', '..kkgGGgkgGGgk..',
   '.kgGGggrgGgggdk.', '.kgGgrwggggrgdk.',
   'kgGggrrggggrrgdk', 'kgggggggGGgggddk',
@@ -259,7 +257,9 @@ const ARBUSTO = compose([[
   '.kgggGGggggggdk.', 'kgggrgggggrggddk',
   'kgdgrrgggrwrgddk', '.kdddgggggrgdddk',
   '..kdddddddddddk.', '...kkkkkkkkkkk..',
-]], { ...VERDE, d: '#2a6a22', r: '#e02a3a', w: '#ffb0b8' })
+]
+const ARBUSTO = compose([FOLHAGEM], { ...VERDE, d: '#2a6a22', r: '#e02a3a', w: '#ffb0b8' })
+const ARBUSTO_COLHIDO = compose([FOLHAGEM], { ...VERDE, d: '#2a6a22', r: VERDE.g, w: VERDE.g })
 const FLORES = compose([[
   '................', '................', '...r.......y....', '..rwr.....ywy...', '...r.......y....', '...g.......g....',
   '...g...p...g....', '......pwp.......', '.......p........', '.......g........',
@@ -725,7 +725,6 @@ const DIRECAO: Record<string, [number, number]> = {
 /** Liga o jogo no palco com Henrido na taverna. Sai sozinho quando o palco troca de tela; `aoVencer` recebe os segundos jogados. */
 export function modoLivre(palco: HTMLElement, aoVencer: (segundos: number) => void) {
   const eu = HENRIDO
-  colhidos.clear()
   const outros = [
     ...ANOES.map((a) => ({ id: a.id, nome: a.nome, fala: FALAS[a.id], x: LOCAL[a.id][0], y: LOCAL[a.id][1], s: 1, img: sprite(retrato(a)), pe: pe(retrato(a)) })),
     ...EXTRAS.map((e) => ({ ...e, img: sprite(e.g), pe: pe(e.g) })),
@@ -924,7 +923,10 @@ export function modoLivre(palco: HTMLElement, aoVencer: (segundos: number) => vo
         coletados.set(item.s, lugar)
         const colhido = soltos.findIndex((s) => s.x === lugar[0] * T && s.y === lugar[1] * T) // o pé colhido some do chão
         if (item.tile && colhido >= 0) soltos.splice(colhido, 1)
-        else if (item.tile) colhidos.add(String(lugar)), piso(mapa.getContext('2d')!, chao(...lugar), ...lugar) // arbusto é sólido e está pintado no chão: repinta com a grama em volta e libera a passagem
+        else if (item.tile) { // arbusto é sólido e está pintado no chão: repinta o tile com ele sem frutinha
+          piso(mapa.getContext('2d')!, chao(...lugar), ...lugar)
+          pinta(mapa.getContext('2d')!, ARBUSTO_COLHIDO, lugar[0] * T, lugar[1] * T)
+        }
         palco.querySelector(`[data-g="${item.s}"]`)!.classList.add('coletado')
       } }
       : montado
