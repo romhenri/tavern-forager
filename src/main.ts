@@ -1,5 +1,5 @@
 import './style.css'
-import { HENRIDO, retrato } from './anoes.ts'
+import { HENRIDU, retrato } from './anoes.ts'
 import { INGREDIENTES, modoLivre } from './livre.ts'
 import { enquadra } from './tela.ts'
 import { BARRIL, icone, svg } from './sprites.ts'
@@ -22,8 +22,8 @@ function titulo() {
   palco.innerHTML = `
     <div class="titulo">
       <div class="logo">${svg(BARRIL, 48)}<h1>Tavern<br><b>Forager</b></h1>${svg(BARRIL, 48)}</div>
-      ${svg(retrato(HENRIDO), 48)}
-      <p class="muted">${HENRIDO.nome} must gather ${INGREDIENTES.length} ingredients around the fortress<br>and bring them back to the tavern.</p>
+      ${svg(retrato(HENRIDU), 48)}
+      <p class="muted">${HENRIDU.nome} must gather ${INGREDIENTES.length} ingredients around the fortress<br>and bring them back to the tavern.</p>
       <div class="linha">${ingredientes()}</div>
       <button class="btn btn-gold" data-ir="jogar">Play</button>
       <p class="muted small">Move: arrows or WASD · Interact: E or Space · Map: M</p>

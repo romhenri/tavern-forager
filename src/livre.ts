@@ -1,5 +1,5 @@
-// A fortaleza: Henrido anda por ela coletando ingredientes e conversa com os outros anões, cada um no seu canto.
-import { ANOES, HENRIDO, retrato } from './anoes.ts'
+// A fortaleza: Henridu anda por ela coletando ingredientes e conversa com os outros anões, cada um no seu canto.
+import { ANOES, HENRIDU, retrato } from './anoes.ts'
 import { BARRIL, PEPITA, compose, dwarfSprite, icone, svg, type Grid } from './sprites.ts'
 
 // Um caractere por tile de 16x16. Gerado à mão: salas separadas por rocha, com portas.
@@ -681,7 +681,7 @@ function desenhaMapa() {
   return { mapa: c, soltos, rio, aves }
 }
 
-/** Foto da fortaleza inteira, com todo mundo no seu lugar e o nome das zonas. Em dobro, como a tela do jogo. Com `eu`, marca onde Henrido está e o que ele já coletou. */
+/** Foto da fortaleza inteira, com todo mundo no seu lugar e o nome das zonas. Em dobro, como a tela do jogo. Com `eu`, marca onde Henridu está e o que ele já coletou. */
 export function mapaInteiro(eu?: [number, number], coletados = new Map<string, [number, number]>()) {
   const { mapa, soltos, rio, aves } = desenhaMapa()
   const c = Object.assign(document.createElement('canvas'), { width: mapa.width * 2, height: mapa.height * 2 })
@@ -707,10 +707,10 @@ export function mapaInteiro(eu?: [number, number], coletados = new Map<string, [
     ctx.fillStyle = '#ffd23b'
     ctx.fillText(nome, sx, sy)
   }
-  // marcadores grandes, o mapa aparece a ~1/5 do tamanho: ingredientes já coletados e, por cima, a cabeça de Henrido
+  // marcadores grandes, o mapa aparece a ~1/5 do tamanho: ingredientes já coletados e, por cima, a cabeça de Henridu
   const marca = (g: Grid, tx: number, ty: number, k: number) => ctx.drawImage(sprite(g), (tx * T + 8) * 2 - g[0].length * k / 2, (ty * T + 8) * 2 - g.length * k / 2, g[0].length * k, g.length * k)
   for (const [s, [tx, ty]] of coletados) marca(icone(s), tx, ty, 5) // onde foi coletado
-  if (eu) marca(retrato(HENRIDO).slice(0, 10), eu[0], eu[1], 8) // só cabeça e barba
+  if (eu) marca(retrato(HENRIDU).slice(0, 10), eu[0], eu[1], 8) // só cabeça e barba
   return c
 }
 
@@ -722,9 +722,9 @@ const DIRECAO: Record<string, [number, number]> = {
   w: [0, -1], s: [0, 1], a: [-1, 0], d: [1, 0],
 }
 
-/** Liga o jogo no palco com Henrido na taverna. Sai sozinho quando o palco troca de tela; `aoVencer` recebe os segundos jogados. */
+/** Liga o jogo no palco com Henridu na taverna. Sai sozinho quando o palco troca de tela; `aoVencer` recebe os segundos jogados. */
 export function modoLivre(palco: HTMLElement, aoVencer: (segundos: number) => void) {
-  const eu = HENRIDO
+  const eu = HENRIDU
   const outros = [
     ...ANOES.map((a) => ({ id: a.id, nome: a.nome, fala: FALAS[a.id], x: LOCAL[a.id][0], y: LOCAL[a.id][1], s: 1, img: sprite(retrato(a)), pe: pe(retrato(a)) })),
     ...EXTRAS.map((e) => ({ ...e, img: sprite(e.g), pe: pe(e.g) })),
