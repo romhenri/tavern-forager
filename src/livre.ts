@@ -5,21 +5,21 @@ import { BARRIL, PEPITA, compose, dwarfSprite, icone, svg, type Grid } from './s
 // Um caractere por tile de 16x16. Gerado à mão: salas separadas por rocha, com portas.
 export const MAPA = [
   '################################################################################################',
-  '#6.......5.....#||||||||||||||#k+?w?k+wk+?k+?ww?k+?k+#_s_s_s_s#?"$"?"qq"?"$"?#úxxx#úxx#úxx#úxxx#',
-  '#..7...........#ssssssssssssss#wwwwwwwwwwwwwwwwwwwwww#ssssssss#xxxxxxxxxxxxxx#xxxx#xxx#xxx#xxxx#',
-  '#...........8..#s>s>sCssCs>s>s#wwwwwwwwwwwwwwwwwwwwwwwssssssss#"5xy"xxxx"yx5"#xxxx#xxx#xxx#xxxx#',
-  '#....9.........#ssssssssssssss#wwwwwwwwwwwwwwwwwwwwww#ssssssss#xxxxxxxxxxxxxx#íííí#ííí#ííí#íííí#',
-  '#............5.#|s>ssssss>ssss#k+wwwk+wk+?k+?ww?k+?k+#0s0s:s:s#?"$xxxxxxxx$"?#xxxxxxxxxxxxxxxxx#',
-  '#..............#############ss###www#################################ü+###################xx####',
-  '#.5..6..$....9.#pBpN+FFFpN+Bpp#uxxxxxu#EEEEEEEEEEEEEE#N+wwwN+w#xxxxxxxxxxxxxxxxxxxxxxx#SHMxxXSH#',
-  '#.....7....$..7#ppp++pppp++ppp#xxxxxxx#vvvvvvvvvvvvvv#++www++w#x^`^xxxxxx`^xx^`^xx`^`x#xxxxxxxx#',
-  '#5..6......$.8.#pppppppppppppp#xxxxxxx#vEEEvvvvvvEEEv#wCwwwCww#xxxxxxxxxxxxxxxxxxxxxxx#x;T;xxx?#',
-  '#..9.7.........pppppIpppIppppp#Bxxxxxx#vvvvvvvvvvvvvv#wwwwwwww#xqyxxxxxxxyqyxxxqqxxyqx#xxxxxxxx#',
-  '#..8........6..#pjpppppppppppp#uxxxxxu#vvv;;;vv;;;vvv#ww]++www#xxxxxxxxxxxxxxxxxxxxxxx#xxxxxxxx#',
-  '#..7..5..8.7..6#pjppppppppppqq#xxxxxxB#vvv]++vv]++vvv#cw;w;wBw#xx))xxxxxx)`xx)))xx`)`x#k+xxxxxB#',
-  '#..5.....895...#ypppIpppIppppp#xxxxxxx#vvv;;;vv;;;vvv#bwwwwwBw#xxxxxxxxxxxxxxxxxxxxxxx#xxxxxxxx#',
-  '#9....6........#ppypppppppppqq#xxxxxxx#vvvvvvvvvvvvvv#Uwwwwwww#x`^`xxxxxxx^^xx`^`xx^`x#xxxxxxxx#',
-  '#.9.7...5..6..8#pBpppppppppBpp#uxxxxxu#EEEvvvvvvvvEEE#EEwwwEEw#xxxxxxxxxxxxxxxxxxxxxxx#Bxxxxxx?#',
+  '#6.õõ.7..9$....#||||||||||||||#k+?w?k+wk+?k+?ww?k+?k+#_s_s_s_s#?"$"?"qq"?"$"?#úxxx#úxx#úxx#úxxx#',
+  '#.5õõ6.6..$....#ssssssssssssss#wwwwwwwwwwwwwwwwwwwwww#ssssssss#xxxxxxxxxxxxxxçxxxx#xxx#xxx#xxxx#',
+  '#7.õõ...8.5..$.#s>s>sCssCs>s>s#wwwwwwwwwwwwwwwwwwwwwwwssssssss#"5xy"xxxx"yx5"#xxxx#xxx#xxx#xxxx#',
+  '#.õõ...5..9....#ssssssssssssss#wwwwwwwwwwwwwwwwwwwwww#ssssssss#xxxxxxxxxxxxxx#íìíí#íìí#íìí#íìíí#',
+  '#õõ.8.8......5.#|s>ssssss>ssss#k+wwwk+wk+?k+?ww?k+?k+#0s0s:s:s#?"$xxxxxxxx$"?#xxxxxxxxxxxxxxxxx#',
+  '#......5..7....#############ss###www#################################ü+###################xx####',
+  '#.5.9...6..8.9.#pBpN+FFFpN+Bpp#uxxxxxu#EEEEEEEEEEEEEE#N+wwwN+w#xxxxxxxxxxxxxxxxxxxxxxx#SHMxxXSH#',
+  '#8...5.7....$..#ppp++pppp++ppp#xxxxxxx#vvvvvvvvvvvvvv#++www++w#x^`^xxxxxx`^xx^`^xx`^`x#xxxxxxxx#',
+  '#5.......6...8.#pppppppppppppp#xxxxxxx#vEEEvvvvvvEEEv#wCwwwCww#xxxxxxxxxxxxxxxxxxxxxxx#x;T;xxx?#',
+  '#..9.6.........pppppIpppIppppp#Bxxxxxx#vvvvvvvvvvvvvv#wwwwwwww#xqyxxxxxxxyqyxxxqqxxyqx#xxxxxxxx#',
+  '#.8...7.5..6..9#pjpppppppppppp#uxxxxxu#vvv;;;vv;;;vvv#ww]++www#xxxxxxxxxxxxxxxxxxxxxxx#xxxxxxxx#',
+  '#7..6....9.7..6#pjppppppppppqq#xxxxxxB#vvv]++vv]++vvv#ww;w;wBw#xx))xxxxxx)`xx)))xx`)`x#k+xxxxxB#',
+  '#.5..98...8.5..#ypppIpppIppppp#xxxxxxx#vvv;;;vv;;;vvv#wwwwwwBw#xxxxxxxxxxxxxxxxxxxxxxx#xxxxxxxx#',
+  '#9.7...9.6..7..#ppypppppppppqq#xxxxxxx#vvvvvvvvvvvvvv#wwwwwwww#x`^`xxxxxxx^^xx`^`xx^`x#xxxxxxxx#',
+  '#.6.8.....5..8.#pBpppppppppBpp#uxxxxxu#EEEvvvvvvvvEEE#EEwwwEEw#xxxxxxxxxxxxxxxxxxxxxxx#Bxxxxxx?#',
   '######################pp#########xxx######vv############ww##########xxxx###################xxx##',
   '#ww}}ww<www<<ww#EE??EEvvEE??EE#uxxxxxxxxBxxxx#BBwRORORORwrrrrr#xSHMXxxxxSHMXx#k+xk+#éwéwé#uxxxu#',
   '#wwwwwwwwwwwwww#vvvvvvvvvvvvvv#xxxxxxxxxxxxxx#Bwwwwwwwwwwrr!rr#xxxxxxxxxxxxxx#?xxx?#wwwww#xxxxx#',
@@ -37,7 +37,7 @@ export const MAPA = [
   '#,,,l,,,l,,l,,l,,l,,c,,c,,c,,c,,c,,c,,c,,~~~,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,aQaaaa#',
   '#,,,,,,,,,,,,,,,,,,,c,,c,,c,,c,,c,,c,,c,,~~~,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,/,,l,a5Qaaaa#',
   '#,,Y,,,,,,l,,l,,,,,,c,,c,,c,,c,,c,,c,,c,,===,,,,,,,,,,,,,,,,,,,,,,,/,,,,,,,,,,,,,,,,,,,aaaaaQaa#',
-  '#,,,,,l,,,,,,,,,l,,,c,,c,,c,,c,,c,,c,,c,,~~~,,,,,ffffffffffffffff,,,,,,,,,,,,,,l,,,,,,,maaaaamQ#',
+  '#,,,,,l,,,,,,,,,l,,,c,,c,,c,,c,,c,,c,,c,,~~~,,,,,ffãffffãffffãfff,,,,,,,,,,,,,,l,,,,,,,maaaaamQ#',
   '#,,,,,,,,,,,,,,,,,,,c,,c,,c,,c,,c,,c,,c,,~~~,,,,,f,,P,f,h,,f,,G,f,,,,,,,,,,,,,,,,Y,,,,,aaaaaaaa#',
   '#,,,,l,,l,,Y,,l,,l,,c,,c,,c,,c,,c,,c,,c,,~~~,,,,,f,P,,f,,h,fGG,,f,/,,,,,,,,,,,,,,,,/,,,,QaaQa5a#',
   '#,,,Y,u,,u,,,,u,,Y,,,,,,,,,,,,,,,,,,,,,,,~~~Yu,,,ffffffffffffffff,,,/,,,,,,,,,,,,,,,,,,,,aQaaaa#',
@@ -51,17 +51,17 @@ export const MAPA = [
   '#,e,n,,,,,,,,,,,pppppK+ppppZ+pppppppK+ppp---pppppppJ+ppppK+ppp,,,,,,,,/,,,/,,,,,,,,,,,,,,,,/,,,#',
   '#,,g,ee,n,,,,l,,ppppp++pppp++ppppppp++ppp~~~ppppppp++pppp++ppp,,,,,,,Y,,,,,,,,/,,,,,,,,,,,,,,/,#',
   '#n,,e,n,,,Y,,,,,ppppppppppppppppppppppppp~~~pppppppppppppppppp,,,,,,,,l,,/,,,,,,,,,Y,,,,/,,,,,,#',
-  '#,g,,e,,,g,,,,l,ppppppp(+pppppppppppppppp~~~pp(+pppppppppppppp,/,,Y,,,,,,,,l,,,,,,,,,,,,,,Y,,,,#',
+  '#,g,,e,,,g,,,,l,ppppppp(+pppppppppppppppp~~~pp(+pppppppppppppp,/,,Y,,,,,,,,l,,,,,,,,,,,,,,ä,,,,#',
   '#g,g,,ne,,,,l,,,Bpppppppppppppppppppppppp~~~pppppppppppppppppB,,,,,,/,,,,,,,,,,,,,,,,/,,,,,,,,,#',
   '#,,,,,,,,,/,,,/,,,,,,,,,,,,,,,,,,,,,,,,,,~~~,,,,,,,,,,,,,,,,,,,,,/,,,,,,,,,,,,,,,,Y,,,,,,,,,,,,#',
-  '#,nl,,le,,,,/,,,l,,,,,,l,/,,,,,,,,,,,,,,,~~~,,,,,,,,,/,,,l,,,,,,,,,,Y,,,,,,,,/,,,,,,/,,,,Y,,,,,#',
-  '#,,,,n,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,~~~,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,l,,/,,,,,,,,,,,Y#',
+  '#,nl,,le,,,,/,,,l,,,,,,l,/,,,,,,,,,,,,,,,~~~,,,,,,,,,/,,,l,,,,,,,,,,Y,,,,,,,,/,,,,,,/,,,,ä,,,,,#',
+  '#,,,,n,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,~~~,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,l,,/,,,,,,,,,,,ä#',
   '#Y,g,,,Y,,,,Y,,,,/,,,,,,,,,,/,,/,/,,,,/,,~~~,,,,,,,/,,,,,,,,,,,l,,,,,,,,,Y,,,Y,,,,,,,,l,,,,/,,,#',
   '################################################################################################',
 ]
 const T = 16
 const PAREDE = '#o1234' // rocha e veios de minério
-const SOLIDO = PAREDE + '~BTFLbfENIYuDSHMXJKZmCUROAW$@&%56789!^(+[]jqyi{}<*?>|k"0_:`)áéóíúü' // P, G, h (ovelha), Q, V e z são bichos: o chão embaixo é livre, eles é que ocupam. Trigo (c), cogumelos (g, e, n), mato (/) e cadeira (;) se atravessam.
+const SOLIDO = PAREDE + '~BTFLbfENIYuDSHMXJKZmCUROAW$@&%56789!^(+[]jqyi{}<*?>|k"0_:`)áéóíìúüçäãõ' // P, G, h (ovelha), Q, V e z são bichos: o chão embaixo é livre, eles é que ocupam. Trigo (c), cogumelos (g, e, n), mato (/) e cadeira (;) se atravessam.
 // Objetos maiores que um tile ficam com a letra no canto de cima à esquerda e '+' no resto.
 export const INICIO: [number, number] = [54, 21] // meio da taverna
 
@@ -87,13 +87,20 @@ export const LOCAL: Record<string, [number, number]> = {
   formigas: [89, 33], // formigueiro
 }
 
-/** Um de cada, cada um onde o sabor dele manda. O mel não fica no chão: sai da colmeia do meio. Cevada, cogumelo e bagas saem de qualquer pé do mapa (`tile`); trigo e cogumelo somem ao ser colhidos, o arbusto fica sem frutinha; x, y é só um deles. */
+/** Um de cada, cada um onde o sabor dele manda. O mel não fica no chão: sai da colmeia do meio. A maçã cai da macieira (`arvore`), o carvão sai do veio quebrado (`minerio`). Cevada, cogumelo e bagas saem de qualquer pé do mapa (`tile`); trigo e cogumelo somem ao ser colhidos, o arbusto fica sem frutinha; x, y é só um deles. */
 export const INGREDIENTES = [
   { s: 'g', nome: 'Mushrooms', x: 2, y: 40, tile: 'g' }, // cogumelos
   { s: 'c', nome: 'Black Barley', x: 32, y: 32, tile: 'c' }, // fazenda
   { s: 'b', nome: 'Berries', x: 6, y: 36, tile: 'u' }, // arbusto de frutinha
-  { s: 't', nome: 'Bactris', x: 23, y: 41 }, // livre comércio, dos mercadores
+  { s: 't', nome: 'Bactris', x: 23, y: 41 }, // livre comércio, ao lado da barraca de tecidos
   { s: 'm', nome: 'Honey', x: 62, y: 27, colmeia: true },
+  { s: 'r', nome: 'Violet Bloom', x: 92, y: 49 }, // flor roxa do campo, perto do canto de baixo à direita
+  { s: 'z', nome: 'Nut', x: 89, y: 2 }, // na cela do goblin
+  { s: 'a', nome: 'Apple', x: 89, y: 50, arvore: true }, // cai de qualquer macieira derrubada com o machado
+  { s: 'e', nome: 'Fly Agaric', x: 4, y: 39, tile: 'e' }, // qualquer amanita dos cogumelos
+  { s: 'k', nome: 'Coal', x: 8, y: 3, minerio: '8' }, // sai de qualquer veio de carvão quebrado com a picareta
+  { s: 'o', nome: 'Egg', x: 63, y: 35 }, // no cercado das galinhas
+  { s: 'R', nome: 'Starlight Lily', x: 70, y: 2 }, // flor rara azul brilhante, no cofre: só pela parede cavada da cela do kobold
 ]
 /** Paredes de dentro da taverna. */
 export const naTaverna = (x: number, y: number) => x >= 46 && x <= 61 && y >= 17 && y <= 25
@@ -158,6 +165,12 @@ const PEDRA = [
 ]
 const VEIOS: [string, string, string][] = [['5', '#f0c040', '#fff0a0'], ['6', '#a8705a', '#d8a890'], ['7', '#d87830', '#ffb070'], ['8', '#111111', '#4a4a4a'], ['9', '#2fc870', '#aaffcc']]
 const PEDRAS = Object.fromEntries(VEIOS.map(([c, o, O]) => [c, compose([PEDRA], { s: '#7a6a5a', S: '#5a4a3a', o, O })]))
+// O que sobra do minério quebrado: uma pedra e uma pepita da cor do veio.
+const CASCALHO = ['', '', '', '', '', '', '', '', '', '..........kkk...', '.........koOok..', '...kkkk..kooOk..', '..ksSssk..kkk...', '.kssssSsk.......', '.kSsssssk.......', '..kkkkkk........']
+// Barril quebrado pelo martelo: aduelas e aros no chão.
+const BARRIL_DIAMANTE = [94, 22] // um barril só, no fim do corredor militar: quebrado, solta um diamante no chão (enfeite, não conta)
+const BARRIL_QUEBRADO = compose([['................', '................', '................', '................', '................', '................', '................', '................', '................', '................', '....kk...kkk....', '...knnk.knnnk...', '..knNnkknNnk....', '.kiiikkkiiik....', '.kkkk...kkkk....', '................']], { n: '#7a4a22', N: '#a86a32', i: '#5a5a62' })
+const ENTULHO = Object.fromEntries(VEIOS.map(([c, o, O]) => [c, compose([CASCALHO], { s: '#7a6a5a', S: '#5a4a3a', o, O })]))
 const MICROFONE = compose([[
   '', '......kkkk......', '.....kIiIik.....', '.....kiIiIk.....', '......kkkk......', '.......kk.......', '.......ki.......', '.......ki.......',
   '.......ki.......', '.......ki.......', '.......ki.......', '.......ki.......', '.......ki.......', '.....kkiikk.....', '....kiiiiiik....', '....kkkkkkkk....',
@@ -276,6 +289,17 @@ const GALINHA = compose([[
 /** Grade de qualquer tamanho, para o que não cabe em 16x16. */
 const grade = (rows: string[], pal: Record<string, string>): Grid => rows.map((r) => [...r].map((c) => (c === '.' ? null : (pal[c] ?? '#1b1410'))))
 const pad = (r: string) => r.padEnd(32, '.')
+// Porteira dos cercados: mourões altos com capa, tábuas vermelhas, travessa diagonal, dobradiças e trinco dourado,
+// para destacar da cerca. Aberta: só os mourões e a folha virada para dentro, de lado.
+const COR_PORTEIRA = { ...MADEIRA, N: '#c8402a', y: '#e0a82a', a: '#a0a6b0' } // tábuas e capas pintadas de vermelho, de longe já se vê
+const PORTEIRA = grade([
+  '.kk..........kk.', 'kNNk........kNNk', 'knnk........knnk', 'knnkkkkkkkkkknnk', 'knnkaNNNNNNNknnk', 'knnkkkkkkkkkknnk', 'knnk......kNNnnk', 'knnk....kNkyknnk',
+  'knnk..kNNkkyknnk', 'knnkkNNk....knnk', 'knnkkkkkkkkkknnk', 'knnkaNNNNNNNknnk', 'knnkkkkkkkkkknnk', 'knnk........knnk', 'knnk........knnk', 'kkkk........kkkk',
+], COR_PORTEIRA)
+const PORTEIRA_ABERTA = grade([
+  '.kk..........kk.', 'kNNk........kNNk', 'knnk........knnk', 'knnkkNk.....knnk', 'knnkkNk.....knnk', 'knnkkNk.....knnk', 'knnkkNk.....knnk', 'knnkkNk.....ynnk',
+  'knnkkNk.....ynnk', 'knnkkNk.....knnk', 'knnkkNk.....knnk', 'knnkkNk.....knnk', 'knnkkNk.....knnk', 'knnkkNk.....knnk', 'knnkkNk.....knnk', 'kkkkkkk.....kkkk',
+], COR_PORTEIRA)
 /** Mesa comprida de n tiles. */
 const mesaLonga = (n: number) => {
   const w = n * T, meio = (c: string) => '.k' + c.repeat(w - 4) + 'k.'
@@ -319,29 +343,31 @@ const CARRINHO = grade([
   '...knnnnnnnnnnnnnnnnnnnk', '...kNNNNNNNNNNNNNNNNNNNkkkkkkkk', '...knnnnnnnnnnnnnnnnnnnknnnnnnnk', '...kNNNNNNNNNNNNNNNNNNNkkkkkkkk',
   '...kkkkkkkkkkkkkkkkkkkkk', '.....kkkk.......kkkk', '....kiiiik.....kiiiik', '....kiNNik.....kiNNik', '....kiiiik.....kiiiik', '.....kkkk.......kkkk',
 ].map(pad), { ...MADEIRA, 1: '#e02a3a', 2: '#ffb02a', 3: '#6cdc4a', w: '#fff6e0', i: '#4a4a52' })
-// 2x2: de perfil olhando para a direita, sela no lombo onde o anão senta
+// 2x2 tiles de corpo e meio tile a mais (40 px) para a cabeça; de perfil olhando para a direita, sela no lombo onde o anão senta.
+// Silhueta de uma peça: garupa redonda, barril, peito, pescoço arqueado, cabeça com bochecha, cauda e jarretes dobrando para trás.
 const CORPO_CAVALO = [
-  '', '', '........................k.k', '.......................kbkbk',
-  '......................kmbbbbk', '.....................kmmbbbbbk', '....................kmmhbbbebbk', '....................kmmhbbbbbbbk',
-  '...................kmmhbbbbbbnnk', '...................kmmhbbkkbnenk', '..................kmmhbbbk.knnk', '..................kmmhbbbk..kk',
-  '.................kmmhbbbbbk', '..kk.............kmhbbbbbbk', '.kmmk.kkkkkkkkkkkkhhbbbbbbBk', 'kmmmmkhksssssssSkhhbbbbbbbBk',
-  'kmmmkbbksssssssSkbbbbbbbbbBk', '.kmmkbbkSSSSSSSSkbbbbbbbbbBk', '.kmmkbbbkkkkkkkkbbbbbbbbbbBk', 'kmmmkbbbbbbbbbbbbbbbbbbbbbBk',
-  'kmmmkBbbbbbbbbbbbbbbbbbbbBBk', 'kmmk.kBbbbbbbbbbbbbbbbbbBBk', 'kmmk.kBBBBBBBBBBBBBBBBBBBBk', '.kmk.kbBkBBkkkkkkkkkbBkBBk',
-  '.kmk.kbBkBBk.......kbBkBBk', '..kk.kbBkBBk.......kbBkBBk', '.....khBkBBk.......khBkBBk', '.....kbBkBBk.......kbBkBBk',
-  '.....kbBkBBk.......kbBkBBk', '.....kwwkddk.......kwwkddk', '.....kddkddk.......kddkddk', '.....kkkkkkk.......kkkkkkk',
+  '............................k.k', '...........................khkhk', '...........................kbkbk', '..........................kkmmbk',
+  '.........................kmmmbbhk', '........................kmmbbbbwhk', '........................kmmbbbbkbhk', '.......................kmmbbbbbbbbhk',
+  '......................kmmbbbbbbbbbbhk', '.....................kmmbbbbbbbbbbbbhk', '....................kmmbbbbbbbkkbbbnkhk', '....................kmmbbbbbbk..kknnnbk',
+  '.........kkkkkkkkkkkmmbbbbbbbk....kbbk', '.....kkkkhhksssssskmmbbbbbbbbk.....kk', '...kkmhhhbbksssssskmbbbbbbbbbk', '..kMmbbbbbbkSSSSSSkbbbbbbbbbbk',
+  '..kmmbbbbbbbbbbbbbbbbbbbbbbbbk', '.kmmMbbbbbbbbbbbbbbbbbbbbbbbbk', '.kmMmbbbbbbbbbbbbbbbbbbbbbbbbk', '.kMmmbbbbbbbbbbbbbbbbbbbbbbbk',
+  '.kmmMkbbbbbbbbbbbbbbbbbbbbbbk', '.kmMmkkBBBBbbbBBBBBBBBBBBbbbk', '.kMmmkkBBBBbbbBBBBBBBBBBBbbbk', '.kmmk.kBBBkbbbBBBBBkkBBBkbbbk',
+  '.kmMk.kBBBkbbbkkkkk.kBBBkbbbk', '.kMmk.kBBBkbbbk.....kBBBkbbbk', '.kmmk.kBBBkbbbk.....kBBBkbbbk', '..kk..kBBBkbbbk.....kBBBkbbbk',
+  '......kBBBkbbbk.....kBBBkwwwk', '......kdddkdddk.....kdddkdddk', '......kdddkdddk.....kdddkdddk', '.......kkk.kkk.......kkk.kkk',
 ]
-const COR_CAVALO = { b: '#8a5a2a', B: '#6a4018', h: '#a87a4a', m: '#2a1a0a', d: '#3a2a18', n: '#5a3a1a', w: '#f4ecd8', s: '#c43a1a', S: '#8a1424' }
-const CAVALO = grade(CORPO_CAVALO.map(pad), COR_CAVALO)
+const COR_CAVALO = { b: '#8a5a2a', B: '#6a4018', h: '#a87a4a', m: '#2a1a0a', M: '#3a2612', d: '#3a2a18', n: '#5a3a1a', w: '#f4ecd8', s: '#c43a1a', S: '#8a1424' }
+const padCavalo = (r: string) => r.padEnd(40, '.')
+const CAVALO = grade(CORPO_CAVALO.map(padCavalo), COR_CAVALO)
 // Passos do anão a pé: só os pés (linhas 14 e 15) mudam, a altura fica a mesma.
 const PES = [['..kddk...kddk...', '.kddkk....kddk..'], ['...kddk...kddk..', '..kddk....kkddk.']]
 // Trote: só as pernas mudam, os cascos ficam sempre na mesma linha para o cavalo não subir e descer.
 const TROTE = [[
-  '.kmk.kbBkBBk.......kbBkBBk', '..kkkbBk.kBBk.......kbBkk', '....khBk.kBBk.......khBkk', '...kbBk...kBBk......kkbBk',
-  '...kbBk...kBBk......kkbBk', '...kwwk...kddk......kkwwk', '..kddk.....kddk....kddkddk', '..kkkk.....kkkk....kkkkkkk',
+  '.kmMk..kBBbbbkkkkkkkBBBk.kbbbk', '.kMmk..kBBbbbk.....kBBBk.kbbbk', '.kmmk...kBbbbk.....kBBBk..kbbbk', '..kk....kBbbbk.....kBBBk..kbbbk',
+  '........kBbbbk.....kBBBk..kwwwk', '........kddddk.....kdddk..kdddk', '........kddddk.....kdddk..kdddk', '.........kkkk.......kkk....kkk',
 ], [
-  '.kmk.kbBkBBk.......kbBkBBk', '..kk..kbBkk.......kbBk.kBBk', '......khBkk.......khBk.kBBk', '......kkbBk......kbBk...kBBk',
-  '......kkbBk......kbBk...kBBk', '......kkwwk......kwwk...kddk', '.....kddkddk....kddk.....kddk', '.....kkkkkkk....kkkk.....kkkk',
-]].map((pernas) => grade([...CORPO_CAVALO.slice(0, 24), ...pernas].map(pad), COR_CAVALO))
+  '.kmMkkBBBk.kbbbkkkk..kBBbbbk', '.kMmkkBBBk.kbbbk.....kBBbbbk', '.kmmkkBBBk..kbbbk.....kBbbbk', '..kk.kBBBk..kbbbk.....kBbbbk',
+  '.....kBBBk..kbbbk.....kBwwwk', '.....kdddk..kdddk.....kddddk', '.....kdddk..kdddk.....kddddk', '......kkk....kkk.......kkkk',
+]].map((pernas) => grade([...CORPO_CAVALO.slice(0, 24), ...pernas].map(padCavalo), COR_CAVALO))
 const COBRA = compose([[
   '', '', '', '', '', '', '', '', '..........kkk...', '.........kgegk..', '..kkk....kgggkr.', '.kgGgk..kgGgk...',
   'kgk.kgkkgGgk....', 'kgk..kgGggk.....', '.kgk..kkkk......', '..kk............',
@@ -456,11 +482,19 @@ const ROLOS = compose([['................', '................', '...............
 const ROCA = compose([['', '', '....kkkkkk......', '...knnnnnnk.....', '..kn.k..k.nk....', '..kn..kk..nk....', '..kn..kk..nk....', '..kn.k..k.nk..w.', '...knnnnnnk..ww.', '....kkkkkk..kwwk', '......kk....knnk', '......kk....knnk', '..kkkkkkkkkkkkkk', '..knnnnnnnnnnnnk', '..kkkkkkkkkkkkkk', '...kk........kk.']], { ...MADEIRA, w: '#f4ecd8' })
 
 // Prisão: grade de ferro na frente das celas e um monte de palha para dormir.
-const GRADE = compose([['kIi.kIi.kIi.kIi.', 'kIi.kIi.kIi.kIi.', 'kkkkkkkkkkkkkkkk', 'kiiiiiiiiiiiiiik', 'kIi.kIi.kIi.kIi.', 'kIi.kIi.kIi.kIi.', 'kIi.kIi.kIi.kIi.', 'kIi.kIi.kIi.kIi.', 'kIi.kIi.kIi.kIi.', 'kIi.kIi.kIi.kIi.', 'kIi.kIi.kIi.kIi.', 'kIi.kIi.kIi.kIi.', 'kiiiiiiiiiiiiiik', 'kkkkkkkkkkkkkkkk', 'kIi.kIi.kIi.kIi.', 'kIi.kIi.kIi.kIi.']], { i: '#4a4a52', I: '#8a8f99' })
+const BARRAS = ['kIi.kIi.kIi.kIi.', 'kIi.kIi.kIi.kIi.', 'kkkkkkkkkkkkkkkk', 'kiiiiiiiiiiiiiik', 'kIi.kIi.kIi.kIi.', 'kIi.kIi.kIi.kIi.', 'kIi.kIi.kIi.kIi.', 'kIi.kIi.kIi.kIi.', 'kIi.kIi.kIi.kIi.', 'kIi.kIi.kIi.kIi.', 'kIi.kIi.kIi.kIi.', 'kIi.kIi.kIi.kIi.', 'kiiiiiiiiiiiiiik', 'kkkkkkkkkkkkkkkk', 'kIi.kIi.kIi.kIi.', 'kIi.kIi.kIi.kIi.']
+const GRADE = compose([BARRAS], { i: '#4a4a52', I: '#8a8f99' })
+// Porta da cela: a mesma grade com uma placa de latão e o buraco da chave. É nela que a chave encaixa.
+const TRANCA = compose([BARRAS, ['', '', '', '', '', '.....kkkkkkk', '.....kyYyyyk', '.....kyykyyk', '.....kykkkyk', '.....kyykyyk', '.....kyykyyk', '.....kyyyyyk', '.....kkkkkkk']], { i: '#4a4a52', I: '#8a8f99', y: '#e0a82a', Y: '#fff0a0' })
 const PALHA = compose([['', '', '', '', '', '', '', '', '', '....kkkkkkkk....', '..kkyYyyYyyYkk..', '.kyYyyyYyyyyyYk.', '.kyyyYyyyYyyyyk.', '.kYyyyyyyyYyyyk.', '..kkkkkkkkkkkk..']], { y: '#c8a050', Y: '#e8c070' })
 
 // Porta do cofre fechada: batente de ferro com rebites de ouro e duas folhas com volante. Tranca a passagem.
 const PORTA_COFRE = grade(['kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk', 'kIIIyIIIIyIIIIyIIIIyIIIIyIIIIIIk', 'kIkkkkkkkkkkkkkkkkkkkkkkkkkkkkIk', 'kIkiiiiiiiiiiiikkiiiiiiiiiiiikIk', 'kykiiiiiiiiiiiikkiiiiiiiiiiiikyk', 'kIkiiYiiiiiiiiikkiiiiiiiiiYiikIk', 'kIkiiiiiiiiiiiikyiiiiiiiiiiiikIk', 'kIkiiiiiiiiiiyikkiyiiiiiiiiiikIk', 'kykiiiiiiiiiiiiyyiiiiiiiiiiiikyk', 'kIkiiiiiiiiiyiykkyiyiiiiiiiiikIk', 'kIkiiiiiiiiiiiiyyiiiiiiiiiiiikIk', 'kIkiiiiiiiiiiyikkiyiiiiiiiiiikIk', 'kykiiYiiiiiiiiikyiiiiiiiiiYiikyk', 'kIkiiiiiiiiiiiikkiiiiiiiiiiiikIk', 'kIkiiiiiiiiiiiikkiiiiiiiiiiiikIk', 'kIkkkkkkkkkkkkkkkkkkkkkkkkkkkkIk'], { i: '#4a4a52', I: '#8a8f99', y: '#e0a82a', Y: '#fff0a0' })
+
+// Parede cavada entre a cela do kobold e o cofre: só o buraco preto começado. A pá termina o túnel.
+const PAREDE_CAVADA = grade(['bbbbbbbbbbbbbbbb', 'bbbbbbbxbbbbbbbb', 'bbbbbxxxxbbbbbbb', 'bbbbxxxxxxxbbbbb', 'bbbxxxxxxxxxbbbb', 'bbxxxxxxxxxxxbbb', 'bbbxxxxxxxxxxxbb', 'bbxxxxxxxxxxxbbb',
+  'bxxxxxxxxxxxxbbb', 'bbxxxxxxxxxxxxbb', 'bbbxxxxxxxxxxbbb', 'bbbbxxxxxxxxbbbb', 'bbbbbxxbxxxbbbbb', 'bbbbbbbbbxbbbbbb', 'bbbbbbbbbbbbbbbb', 'bbbbbbbbbbbbbbbb'],
+{ b: '#2a221d', x: '#120d0a' }) // buraco escuro, borda irregular de rocha arrancada
 
 const PROP: Record<string, Grid> = {
   ...MINERIO, ...PEDRAS, '!': MICROFONE, '^': ESTATUA, B: BARRIL, U: icone('m'), C: CALDEIRAO, F: FORJA, L: icone('A'), c: icone('c'), b: icone('b'), g: icone('g'),
@@ -475,7 +509,7 @@ const PROP: Record<string, Grid> = {
   Z: grade(BARRACA, { ...BENS, a: '#3a8a2a', A: '#ffd23b', 1: '#5ce6e6', 2: '#e83a1a', 3: '#c070e0' }), // poções
   '(': CARRINHO,
   j: LAPIDARIO, q: MOSTRUARIO, y: GEMAS, i: COLMEIA, e: AMANITA, n: PARDOS,
-  '{': BANCADA_CARP, '}': TABUAS, '<': TORAS, '*': ESCRIVANINHA, '?': BAU, '>': BANCADA_ALQ, '|': POCOES, '/': MATO, k: CAMA, '"': OURO, '0': TINA, _: LATRINA, ':': BACIA, '`': ESTATUA_PEDRA, ')': ESQUELETO, á: TEAR, é: ROLOS, ó: ROCA, í: GRADE, ú: PALHA, ü: PORTA_COFRE,
+  '{': BANCADA_CARP, '}': TABUAS, '<': TORAS, '*': ESCRIVANINHA, '?': BAU, '>': BANCADA_ALQ, '|': POCOES, '/': MATO, k: CAMA, '"': OURO, '0': TINA, _: LATRINA, ':': BACIA, '`': ESTATUA_PEDRA, ')': ESQUELETO, á: TEAR, é: ROLOS, ó: ROCA, í: GRADE, ì: TRANCA, ú: PALHA, ç: PAREDE_CAVADA, ã: PORTEIRA, ü: PORTA_COFRE,
 }
 const OVELHA = compose([[
   '', '', '', '', '', '....kkkkkk......', '...kwwWwwwk.kk..', '..kwWwwwWwwkddk.', '.kwwwwwwwwwkdedk', '.kwWwwwwWwwkdddk',
@@ -488,10 +522,13 @@ const GOBLIN = compose([[
   '........', '........', '....kkkk', 'kk.kgggg', 'kgkggggg', '.kgggegg', '..kggggg', '...kgkww',
   '...kkggg', '..kccccc', '.kgkcccc', '.kgkcccc', '..kkcccc', '...kcckk', '...kggk.', '...kkkk.',
 ]], { g: '#6a9a2a', e: '#ff3b2f', w: '#f4ecd8', c: '#5a3a1a' })
-const ELFO = compose([[
-  '.....kkk', '....kyyy', '...kyyyy', '...kyyss', 'ks.kysss', '.kskyses', '..kyssss', '..kyysss',
-  '..kygkkk', '..kygggg', '.kskgggg', '.kskgGgg', '..kkgggg', '...kgggg', '...kdkkd', '...kkk..',
-]], { y: '#f0e070', s: '#f0c8a0', e: '#1b1410', g: '#2f7a3a', G: '#6cdc4a', d: '#3a2a18' })
+// Elfo: alto e esguio, 1 tile de largura e 2 de altura; cabelo longo e orelhas pontudas. Linhas pela metade, espelhadas.
+const ELFO = grade([
+  '........', '.....kkk', '....kyyy', '...kyyyy', '...kyyyy', '...kyyss', 'k..kysss', 'ksskyess',
+  '.kkkysss', '...kyyss', '...kyykk', '...kykgg', '..kyykgg', '..kykggG', '.kgkgggg', '.kgkgggg',
+  '.kgkgGgg', '.kgkgggg', '.kskgggg', '.kkkbbbb', '...kgggg', '...kgggg', '...kgggk', '....kddk',
+  '....kddk', '....kddk', '....kddk', '....kddk', '...kDDDk', '...kDDDk', '...kDDDk', '...kkkkk',
+].map((r) => r + [...r].reverse().join('')), { y: '#f0e070', s: '#f0c8a0', e: '#1b1410', g: '#2f7a3a', G: '#6cdc4a', b: '#8a5a2a', d: '#5a4a2a', D: '#3a2a18' })
 // 32x32, dormindo em cima do ouro
 const DRAGAO = grade([
   '................................', '................................', '..........k.....................', '.........kSk.........k...k......',
@@ -503,23 +540,73 @@ const DRAGAO = grade([
   '..kRRoooooooooooooRRrrRk........', '...kkRRkkkkkkkRRkkkRRRk.........', 'kk...kRRk....kRRk.kRRk..........', 'krk..kwkwk...kwkwkkwkwk.........',
   '.krkkkkkkkggggkkkkkkkkgggg......', '..kRRrrrrkgGgggggGggggggGgg.....', '...kkkkkkgggggGgggggGggggggg....', '........kkkkkkkkkkkkkkkkkkkkk...',
 ], { r: '#c43a1a', R: '#8a1424', o: '#ffb02a', h: '#e8d8a8', w: '#f4ecd8', s: '#8a1424', S: '#5a0a14', g: '#f0c040', G: '#fff0a0' })
-/** Ocupam s x s tiles a partir de (x, y). */
-const ORC = compose([[
-  '........', '...kkkkk', '..kggggg', '.kgggggg', '.kgkkggg', '.kggeggg', '.kgggggg', '..kgwkkk',
-  '..kkgggg', '.kAAAAAA', 'kgkAaAAA', 'kgkAAAaA', 'kkkAAAAA', '...kddkk', '...kddk.', '...kkkk.',
-]], { g: '#5a7a3a', e: '#ff3b2f', w: '#f4ecd8', A: '#4a4a52', a: '#8a8f99', d: '#3a2a18' })
+/** Ocupam s x s tiles a partir de (x, y); sprite maior que isso sobra para cima e para os lados. */
+// Orc: 1,5 tile de largura e 2 de altura, bem maior que anões e goblins. Linhas pela metade, espelhadas.
+const ORC = grade([
+  '............', '.......kkkkk', '......kGGGGG', '......kggggg',
+  '....k.kkkggg', '....kgkgeggg', '.....kkggggg', '......kgwggg',
+  '......kwwkkk', '.......kgggg', '....kkkkkkkk', '...kaAAAAAAA',
+  '..kaAAkAAAAA', '..kAAAkAAAAA', '..kkkkkAAAaA', '.kggk.kAAAAA',
+  '.kggk.kAAAAA', '.kggk.kAaAAA', '.kggk.kAAAAA', '.kGGk.kmmmmm',
+  '.kkkk.kAAAAA', '......kAAkAA', '......kddddk', '......kddddk',
+  '......kddddk', '......kddddk', '......kddddk', '......kddddk',
+  '.....kDDDDDk', '.....kDDDDDk', '.....kDDDDDk', '.....kkkkkkk',
+].map((r) => r + [...r].reverse().join('')), { g: '#5a7a3a', G: '#3e5a28', e: '#ff3b2f', w: '#f4ecd8', A: '#4a4a52', a: '#8a8f99', m: '#6a4a2a', d: '#3a2a18', D: '#2a1e12' })
 // Kobold: lagartinho de escamas cor de ferrugem, chifres claros e olhos amarelos.
 const KOBOLD = compose([['........', '..k.....', '..kh....', '...khkkk', '...krrrr', '..krrerr', '..krrrrr', '...krrRR', '....kkkk', '...kbbbb', '..krbbbb', '..krbbbb', '...kbbbb', '....krrk', '....krrk', '....kkkk']], { r: '#a8502a', R: '#d88a5a', h: '#e8d8a8', e: '#ffe14a', b: '#5a3a1a' })
+/** Anão deitado no tile esquerdo da cama: cabeça no travesseiro e o cobertor por cima do corpo. */
+const deitado = (anao: Grid) => {
+  const g: Grid = Array.from({ length: 16 }, (_, i) => Array.from({ length: 16 }, (_, j) => (j >= 4 ? anao[j - 4]?.[15 - i] ?? null : null))) // girado: a cabeça fica à esquerda
+  for (let i = 0; i < 16; i++) for (let j = 11; j < 16; j++) if (CAMA[i]?.[j]) g[i][j] = CAMA[i][j] // cobertor por cima do corpo
+  return g
+}
+/** Escondido debaixo do cobertor: só um tufo de cabelo aparece no travesseiro. */
+const escondido = (anao: Grid) => {
+  const g = deitado(anao)
+  for (let i = 0; i < 16; i++) for (let j = 6; j < 11; j++) if (g[i][j]) g[i][j] = i === 3 || !g[i - 1]?.[j] ? '#1b1410' : (i + j) % 5 ? '#8a1424' : '#b0302a'
+  return g
+}
+// Guarda da prisão: dorme na cama da sala da guarda, com a chave das celas do lado.
+const DEITADO = deitado(dwarfSprite('Torvin the Guard', 'Hammerdwarf', 'dormindo'))
 export const EXTRAS = [
   { id: 'goblin', nome: 'Grishnak the Goblin', fala: 'Psst... I trade dwarf gold for a sip. Nobody needs to know.', x: 45, y: 41, s: 1, g: GOBLIN },
   { id: 'elfo', nome: 'Elandor the Elf', fala: 'I came to taste dwarven ale. They say it beats elven wine. I doubt it.', x: 8, y: 33, s: 1, g: ELFO },
   { id: 'snik', nome: 'Snik the Goblin', fala: 'Trinkets! Shiny stones! Hardly anything stolen!', x: 26, y: 42, s: 1, g: GOBLIN },
   { id: 'grot', nome: 'Grot the Goblin', fala: "Don't look at my stall. Look over there. ...Done, it's gone.", x: 53, y: 47, s: 1, g: GOBLIN },
   { id: 'orc', nome: 'Urzog the Orc', fala: 'Orc wants ale. Orc pays with... respect.', x: 32, y: 47, s: 1, g: ORC },
-  { id: 'dragao', nome: 'Ignaroth the Dragon', fala: 'Zzz... who comes near my gold? ...Ah, just a dwarf. Zzz.', x: 9, y: 8, s: 2, g: DRAGAO },
+  { id: 'guarda', nome: 'Torvin the Guard', fala: 'Zzz... all locked up... nobody touches my key... zzz.', x: 87, y: 12, s: 1, g: DEITADO, dorme: true },
+  { id: 'dragao', nome: 'Ignaroth the Dragon', fala: 'Zzz... who comes near my gold? ...Ah, just a dwarf. Zzz.', x: 12, y: 1, s: 2, g: DRAGAO },
   // presos: atrás da grade, ninguém chega neles; dá para conversar do corredor
-  { id: 'preso-goblin', nome: 'Grizzle the Goblin', fala: "I only borrowed it! Talk to the guard, come on. I'll split it with you.", x: 84, y: 3, s: 1, g: GOBLIN, preso: true },
-  { id: 'kobold', nome: 'Skrit the Kobold', fala: 'Skrit dug no tunnel. Skrit was just... testing the wall.', x: 92, y: 3, s: 1, g: KOBOLD, preso: true },
+  { id: 'preso-goblin', nome: 'Grizzle the Goblin', fala: "I only borrowed it! Talk to the guard, come on. I'll split it with you.", x: 88, y: 3, s: 1, g: GOBLIN, preso: true },
+  { id: 'kobold', nome: 'Skrit the Kobold', fala: 'Skrit dug no tunnel. Skrit was just... testing the wall.', x: 79, y: 3, s: 1, g: KOBOLD, preso: true }, // cela 1, colada no cofre
+  { id: 'preso-anao', nome: 'Falco the Smuggler', fala: 'I only smuggled ale into the barracks. Is that a crime? ...Since when?', x: 93, y: 3, s: 1, g: dwarfSprite('Falco the Smuggler', 'Miner'), preso: true },
+]
+
+// Ferramentas, no traço do Minecraft: uma na mão por vez. Picareta quebra minério, machado derruba árvore, chave abre cela.
+const ferramenta = (rows: string[]) => {
+  const topo = (16 - rows.length) >> 1
+  return grade(Array.from({ length: 16 }, (_, i) => (rows[i - topo] ?? '').padEnd(16, '.')), { a: '#a0a6b0', A: '#e8ecf0', m: '#6a461e', M: '#a06e38', y: '#f0c040', Y: '#fff0a0' })
+}
+export const FERRAMENTAS = [
+  { s: 'picareta', nome: 'Pickaxe', x: 27, y: 14, g: ferramenta([ // forja
+    '................', '....kkkkkkk.....', '...kAAAAAAAk....', '....kkkkkaAAk...', '........kkaAAk..', '.......kmkkaAk..',
+    '......kMk.kaAk..', '.....kmk..kaAk..', '....kMk...kaak..', '...kmk.....kk...', '..kMk...........', '.kmk............',
+    'kMk.............', 'mk..............']) },
+  { s: 'machado', nome: 'Axe', x: 12, y: 18, g: ferramenta([ // carpintaria, embaixo das toras
+    '................', '.....kkkk.......', '....kAAAAk.kMk..', '...kAAaaaakmk...', '...kAaaaaakk....', '...kAaaaakk.....',
+    '...kaaaakk......', '....kkkkk.......', '.....kMk........', '....kmk.........', '...kMk..........', '..kmk...........',
+    '.kMk............', 'kmk.............']) },
+  { s: 'martelo', nome: 'Hammer', x: 34, y: 9, g: ferramenta([ // no corredor: quebra barril e ponte de madeira
+    '.........k......', '........kAk.....', '.......kaAAk....', '......kaaaAAk...', '.......kaaaAAk..', '........kaaaAAk.',
+    '.......kMkaaaAAk', '......kmk.kaaak.', '.....kMk...kak..', '....kmk.....k...', '...kMk..........', '..kmk...........',
+    '.kMk............', 'kmk.............', 'Mk..............', '................']) },
+  { s: 'pa', nome: 'Shovel', x: 91, y: 32, g: ferramenta([ // no meio do formigueiro
+    '................', '...........kkk..', '..........kAAak.', '.........kAAaak.', '.........kAaaak.', '.........kaaak..',
+    '........kMkkk...', '.......kmk......', '......kMk.......', '.....kmk........', '....kMk.........', '...kmk..........',
+    '..kMk...........', '.kmk............', 'kMk.............']) },
+  { s: 'chave', nome: 'Cell Key', x: 89, y: 12, g: ferramenta([ // sala da guarda, do lado da cama do guarda
+    '..kkkk..........', '.kyYYyk.........', 'kyk..kyk........', 'kyk..kyk........', '.kyyyyyk........', '..kkkkyyk.......',
+    '......kyyk......', '.......kyyk.....', '........kyykkk..', '.........kyyyyk.', '........kykkyk..', '.........k..k...']) },
 ]
 
 function pinta(ctx: CanvasRenderingContext2D, g: Grid, x: number, y: number) {
@@ -531,6 +618,8 @@ const sprite = (g: Grid) => {
   return c
 }
 /** Altura do pé: a linha logo abaixo do último pixel pintado. É a chave do Y-sort. */
+/** Quanto o sprite passa dos s x s tiles que ocupa: centrado na largura, pés na base. */
+const sobra = (g: Grid, s: number) => [(g[0].length - s * T) / 2, g.length - s * T]
 const pe = (g: Grid) => g.length - [...g].reverse().findIndex((r) => r.some(Boolean))
 
 /** Vizinhos do mais perto ao mais longe: objetos grandes cercam o meio de outros objetos. */
@@ -541,9 +630,11 @@ const chao = (x: number, y: number) => {
   const em = ([dx, dy]: number[]) => MAPA[y + dy]?.[x + dx]
   const perto = VIZINHOS.slice(0, 8).map(em).filter(ePiso)
   const conta = (c: string) => perto.filter((d) => d === c).length
+  // objeto na quina do calçamento fica sobre o calçamento, senão a ponta some e o meio-fio dos vizinhos vira degrau
+  if ([[-1, 0], [1, 0]].some((d) => em(d) === 'p') && [[0, -1], [0, 1]].some((d) => em(d) === 'p')) return 'p'
   return perto.reduce((m, c) => (conta(c) > conta(m) ? c : m), perto[0]) ?? VIZINHOS.map(em).find(ePiso) ?? '.'
 }
-const parede = (x: number, y: number) => PAREDE.includes(MAPA[y]?.[x] ?? '#')
+const parede = (x: number, y: number) => (PAREDE + 'ç').includes(MAPA[y]?.[x] ?? '#') // a parede cavada ainda é parede
 
 /** Pinta o tile (x, y) com o padrão do piso `qual`. */
 function piso(ctx: CanvasRenderingContext2D, qual: string, x: number, y: number) {
@@ -555,10 +646,17 @@ function piso(ctx: CanvasRenderingContext2D, qual: string, x: number, y: number)
     pedras.forEach(([sx, sy, w], k) => (rect((x + k) % 3 ? mancha : '#6a5e52', sx, sy, w, 7), rect('#7a6e62', sx, sy, w, 1)))
     // meio-fio onde o calçamento encontra grama ou o rio: pedra clara na borda e uma linha de sombra para dentro
     const grama = (nx: number, ny: number) => { const n = MAPA[ny]?.[nx]; return n === 'f' || n === '~' || (!!n && !(n in PISO) && !PAREDE.includes(n) ? chao(nx, ny) === ',' : n === ',') } // cerca sempre fica na grama; '~' é a margem do rio
-    if (grama(x, y - 1)) rect('#8a7e72', 0, 0, T, 2), rect('#1b1410', 0, 2, T, 1)
-    if (grama(x, y + 1)) rect('#1b1410', 0, 13, T, 1), rect('#8a7e72', 0, 14, T, 2)
-    if (grama(x - 1, y)) rect('#8a7e72', 0, 0, 2, T), rect('#1b1410', 2, 0, 1, T)
-    if (grama(x + 1, y)) rect('#1b1410', 13, 0, 1, T), rect('#8a7e72', 14, 0, 2, T)
+    const [cima, baixo, esq, dir] = [grama(x, y - 1), grama(x, y + 1), grama(x - 1, y), grama(x + 1, y)]
+    if (cima) rect('#8a7e72', 0, 0, T, 2)
+    if (baixo) rect('#8a7e72', 0, 14, T, 2)
+    if (esq) rect('#8a7e72', 0, 0, 2, T)
+    if (dir) rect('#8a7e72', 14, 0, 2, T)
+    // sombra só entre as bordas claras: nas quinas ela não atravessa o meio-fio
+    const x0 = esq ? 2 : 0, x1 = dir ? 14 : T, y0 = cima ? 2 : 0, y1 = baixo ? 14 : T
+    if (cima) rect('#1b1410', x0, 2, x1 - x0, 1)
+    if (baixo) rect('#1b1410', x0, 13, x1 - x0, 1)
+    if (esq) rect('#1b1410', 2, y0, 1, y1 - y0)
+    if (dir) rect('#1b1410', 13, y0, 1, y1 - y0)
   } else if (qual === 's') { // lajes de pedra nas cores do chão do quartel: duas fiadas de placas desencontradas, cada placa num tom, com luz na borda de cima
     const c1 = 4 + ((x * 5 + y * 3) % 8), c2 = 4 + ((x * 3 + y * 7) % 8)
     ;[[0, 0, c1], [c1, 0, T - c1], [0, 8, c2], [c2, 8, T - c2]].forEach(([sx, sy, w], k) => {
@@ -643,12 +741,34 @@ function agua(ctx: CanvasRenderingContext2D, x: number, y: number, agora: number
   if (queda(x, y - 1)) for (let k = 0; k < 5; k++) rect('#d8f4ff', (k * 3 + Math.floor(t) * 5 + x) % 15, (k + Math.floor(t / 2)) % 4, 2, 1) // respingo ao pé da queda
 }
 
+/** Rio de lava da mina: escorre devagar, com crosta escura nas margens e bolhas claras que sobem. */
+function lava(ctx: CanvasRenderingContext2D, x: number, y: number, agora: number) {
+  const rect = (c: string, rx: number, ry: number, w: number, h: number) => ((ctx.fillStyle = c), ctx.fillRect(x * T + rx, y * T + ry, w, h))
+  const t = agora / 400
+  rect('#c43a1a', 0, 0, T, T)
+  for (let k = 0; k < 3; k++) {
+    const rx = (x * 7 + k * 5) % 11, ry = Math.floor(k * 6 + t + x * 5) % T
+    rect('#ff7a1a', rx, ry, 5, 2)
+    rect('#8a1408', rx + 2, (ry + 4) % T, 4, 1)
+  }
+  if ((Math.floor(t * 2) + x * 3 + y) % 7 === 0) rect('#fff0a0', (x * 5 + y * 3) % 12 + 2, (y * 7 + x) % 12 + 2, 2, 2) // bolha estourando
+  for (const [dx, bx] of [[-1, 0], [1, 14]]) if (MAPA[y][x + dx] !== 'õ') rect('#3a1408', bx, 0, 2, T) // crosta na margem
+  if (MAPA[y - 1]?.[x] !== 'õ') rect('#3a1408', 0, 0, T, 2)
+  if (MAPA[y + 1]?.[x] !== 'õ') rect('#3a1408', 0, 14, T, 2)
+}
+
 /** Árvore inteira, tronco e copa, num sprite só: assim a copa entra no Y-sort pelo pé do tronco. */
-function arvore() {
+function arvore(macas = false) {
   const c = Object.assign(document.createElement('canvas'), { width: 32, height: 20 + T })
   const ctx = c.getContext('2d')!
   pinta(ctx, ARVORE, 8, 20)
   pinta(ctx, COPA, 0, 0)
+  if (macas) for (const [mx, my] of [[8, 6], [18, 4], [24, 10], [12, 13], [20, 15], [5, 11], [15, 9]]) { // macieira: maçãs de 2x2 com brilho
+    ctx.fillStyle = '#e02a3a'
+    ctx.fillRect(mx, my, 2, 2)
+    ctx.fillStyle = '#ffb0b8'
+    ctx.fillRect(mx, my, 1, 1)
+  }
   return c
 }
 
@@ -658,7 +778,7 @@ function desenhaMapa() {
   const ctx = c.getContext('2d')!
   const imgs: Record<string, HTMLCanvasElement> = {}
   const soltos: { img: HTMLCanvasElement; x: number; y: number; pe: number }[] = []
-  const aves: { quadros: HTMLCanvasElement[]; x: number; y: number }[] = [] // papagaios, desenhados a cada quadro
+  const aves: { quadros: HTMLCanvasElement[]; voo: HTMLCanvasElement[]; poleiro: HTMLCanvasElement; x: number; y: number; voa?: number }[] = [] // papagaios, desenhados a cada quadro; voo e poleiro separados para o que sai voando
   const cerca = (x: number, y: number) => MAPA[y]?.[x] === 'f'
   // cerca é de bicho: sempre em cima de grama, mesmo encostada no Livre Comércio
   MAPA.forEach((linha, y) => [...linha].forEach((ch, x) => piso(ctx, ch in PISO ? ch : PAREDE.includes(ch) ? '#' : ch === 'f' ? ',' : chao(x, y), x, y)))
@@ -668,8 +788,11 @@ function desenhaMapa() {
       const v = cerca(x, y - 1) || cerca(x, y + 1)
       if (cerca(x - 1, y) || cerca(x + 1, y) || !v) pinta(ctx, CERCA, x * T, y * T)
       if (v) pinta(ctx, CERCA_V, x * T, y * T)
-    } else if (PAPAGAIOS[ch]) aves.push({ quadros: PAPAGAIOS[ch].map(sprite), x: x * T, y: y * T })
-    else if (ch === 'Y') soltos.push({ img: (imgs.Y ??= arvore()), x: x * T - 8, y: y * T - 20, pe: y * T + pe(ARVORE) })
+    } else if (PAPAGAIOS[ch]) {
+      const parte = (g: Grid, de: number, ate: number) => sprite(g.map((r, j) => (j >= de && j < ate ? r : r.map(() => null))))
+      aves.push({ quadros: PAPAGAIOS[ch].map(sprite), voo: PAPAGAIOS[ch].map((g) => parte(g, 0, 12)), poleiro: parte(PAPAGAIOS[ch][0], 11, 16), x: x * T, y: y * T })
+    }
+    else if (ch === 'Y' || ch === 'ä') soltos.push({ img: (imgs[ch] ??= arvore(ch === 'ä')), x: x * T - 8, y: y * T - 20, pe: y * T + pe(ARVORE) }) // ä: macieira
     else if (PROP[ch] && andavel(x, y)) soltos.push({ img: (imgs[ch] ??= sprite(PROP[ch])), x: x * T, y: y * T, pe: y * T + pe(PROP[ch]) })
     else if (PROP[ch]) pinta(ctx, PROP[ch], x * T, y * T)
   }))
@@ -678,24 +801,29 @@ function desenhaMapa() {
   ctx.fillStyle = '#ffd23b40'
   for (const [nome, sx, sy, px] of SALAS) (ctx.font = `${px}px VT323, monospace`), ctx.fillText(nome, sx * T + 8, sy * T + 8)
   const rio = MAPA.flatMap((linha, y) => [...linha].flatMap((ch, x) => (ch === '~' ? [[x, y]] : [])))
-  return { mapa: c, soltos, rio, aves }
+  const lavas = MAPA.flatMap((linha, y) => [...linha].flatMap((ch, x) => (ch === 'õ' ? [[x, y]] : [])))
+  return { mapa: c, soltos, rio, lavas, aves }
 }
 
 /** Foto da fortaleza inteira, com todo mundo no seu lugar e o nome das zonas. Em dobro, como a tela do jogo. Com `eu`, marca onde Henridu está e o que ele já coletou. */
 export function mapaInteiro(eu?: [number, number], coletados = new Map<string, [number, number]>()) {
-  const { mapa, soltos, rio, aves } = desenhaMapa()
+  const { mapa, soltos, rio, lavas, aves } = desenhaMapa()
   const c = Object.assign(document.createElement('canvas'), { width: mapa.width * 2, height: mapa.height * 2 })
   const ctx = c.getContext('2d')!
   ctx.imageSmoothingEnabled = false
   ctx.setTransform(2, 0, 0, 2, 0, 0)
   ctx.drawImage(mapa, 0, 0)
   for (const [ax, ay] of rio) agua(ctx, ax, ay, 0)
+  for (const [ax, ay] of lavas) lava(ctx, ax, ay, 0)
   for (const a of aves) ctx.drawImage(a.quadros[0], a.x, a.y)
   const gente = [...ANOES.map((a) => ({ g: retrato(a), x: LOCAL[a.id][0], y: LOCAL[a.id][1] })), ...EXTRAS]
   const bichos = MAPA.flatMap((l, by) => [...l].flatMap((ch, bx) => (BICHO[ch] ? [{ g: BICHO[ch], x: bx, y: by + 1 - BICHO[ch].length / T }] : [])))
   // mesmo Y-sort do jogo, parado
   const cena: [number, () => void][] = soltos.map((s) => [s.pe, () => ctx.drawImage(s.img, s.x, s.y)])
-  for (const o of [...gente, ...bichos]) cena.push([o.y * T + pe(o.g), () => pinta(ctx, o.g, o.x * T, o.y * T)])
+  for (const o of [...gente, ...bichos]) {
+    const [ox, oy] = sobra(o.g, 's' in o ? (o.s as number) : 1)
+    cena.push([o.y * T - oy + pe(o.g), () => pinta(ctx, o.g, o.x * T - ox, o.y * T - oy)])
+  }
   cena.sort((a, b) => a[0] - b[0]).forEach(([, desenha]) => desenha())
   ctx.setTransform(1, 0, 0, 1, 0, 0)
   ctx.font = '16px VT323, monospace'
@@ -717,6 +845,14 @@ export function mapaInteiro(eu?: [number, number], coletados = new Map<string, [
 // ---------------------------------------------------------------- jogo
 
 const PASSO = 0.14 // segundos por tile
+const FUGA_GALINHAS: [number, number][] = [[67, 30], [58, 29], [72, 34], [66, 38], [70, 31]] // para onde cada galinha corre ao abrir o cercado
+const MEIO_PONTE: [number, number] = [42, 32] // tábua do meio da ponte de madeira
+const FIM_RIO = 51 // última linha do rio, junto da borda de baixo
+const SAIDA_RIO: [number, number] = [44, 51] // margem onde ele sai da água
+const CAMA_MARIANA: [number, number] = [36, 1] // cama do dormitório onde a Mariana se esconde
+const SONO = 3000 // ms dormindo na cama
+const LOURO = [47, 29]
+const ARISCO = [51, 29] // o terceiro papagaio, o verde: espantado, voa embora // o papagaio vermelho, o único que fala
 const DIRECAO: Record<string, [number, number]> = {
   ArrowUp: [0, -1], ArrowDown: [0, 1], ArrowLeft: [-1, 0], ArrowRight: [1, 0],
   w: [0, -1], s: [0, 1], a: [-1, 0], d: [1, 0],
@@ -726,12 +862,12 @@ const DIRECAO: Record<string, [number, number]> = {
 export function modoLivre(palco: HTMLElement, aoVencer: (segundos: number) => void) {
   const eu = HENRIDU
   const outros = [
-    ...ANOES.map((a) => ({ id: a.id, nome: a.nome, fala: FALAS[a.id], x: LOCAL[a.id][0], y: LOCAL[a.id][1], s: 1, img: sprite(retrato(a)), pe: pe(retrato(a)) })),
+    ...ANOES.map((a) => ({ id: a.id, nome: a.nome, fala: FALAS[a.id], x: LOCAL[a.id][0], y: LOCAL[a.id][1], s: 1, g: retrato(a), img: sprite(retrato(a)), pe: pe(retrato(a)) })),
     ...EXTRAS.map((e) => ({ ...e, img: sprite(e.g), pe: pe(e.g) })),
   ]
   const em = (o: (typeof outros)[number], ox: number, oy: number) => ox >= o.x && ox < o.x + o.s && oy >= o.y && oy < o.y + o.s
   // Bichos passeiam sozinhos dentro dos cercados.
-  const bichos = MAPA.flatMap((l, by) => [...l].flatMap((ch, bx) => BICHO[ch] ? [{ x: bx, y: by, w: Math.floor(BICHO[ch][0].length / T), de: [bx, by], t: 1, esq: false, img: sprite(BICHO[ch]), pe: pe(BICHO[ch]), chao: chao(bx, by), tipo: ch }] : []))
+  const bichos = MAPA.flatMap((l, by) => [...l].flatMap((ch, bx) => BICHO[ch] ? [{ x: bx, y: by, w: Math.floor(BICHO[ch][0].length / T), de: [bx, by], t: 1, esq: false, img: sprite(BICHO[ch]), pe: pe(BICHO[ch]), chao: chao(bx, by), tipo: ch, foge: [] as [number, number][] }] : []))
   // caixa dos pés do anão (10x8 px na base do sprite): é ela que colide
   const pisa = (tx: number, ty: number, ax = fx, ay = fy) => ax + 3 < (tx + 1) * T && ax + 13 > tx * T && ay + 8 < (ty + 1) * T && ay + 16 > ty * T
   const ocupado = (ox: number, oy: number, eu?: (typeof bichos)[number]) =>
@@ -748,11 +884,12 @@ export function modoLivre(palco: HTMLElement, aoVencer: (segundos: number) => vo
     <button class="btn btn-gold voltar" data-ir="titulo">Menu</button>
     <button class="btn btn-gold abre-mapa" title="Map (M)">Map</button>
     <div class="mapa-jogo cortina" hidden></div>
-    <button class="btn interagir" aria-label="Interact (E or Space)">◆</button>
+    <button class="btn interagir" aria-label="Interact (E or Space)"><b>E</b></button>
+    <div class="mao" title="No tool"></div>
     <div class="dpad">${['ArrowUp', 'ArrowLeft', 'ArrowRight', 'ArrowDown'].map((k) => `<button class="btn" data-dir="${k}" aria-label="${k}">${{ ArrowUp: '▲', ArrowLeft: '◀', ArrowRight: '▶', ArrowDown: '▼' }[k]}</button>`).join('')}</div>`
   const ctx = palco.querySelector('canvas')!.getContext('2d')!
   const balao = palco.querySelector<HTMLElement>('.balao')!
-  const { mapa, soltos, rio, aves } = desenhaMapa()
+  const { mapa, soltos, rio, lavas, aves } = desenhaMapa()
   const peEu = pe(retrato(eu))
   const trote = TROTE.map(sprite)
   const passos = [retrato(eu), ...PES.map((p) => [...retrato(eu).slice(0, 14), ...grade(p, { d: '#3a2a18' })])]
@@ -769,8 +906,51 @@ export function modoLivre(palco: HTMLElement, aoVencer: (segundos: number) => vo
   let fogoAte = 0, corDe = 0, corAte = 0, cor = img // baforada do dragão; cor do anão queimado ou envenenado
   let acao: { rotulo: string; fazer: () => void } | undefined
   const coletados = new Map<string, [number, number]>()
-  const itens = INGREDIENTES.map((g) => ({ ...g, img: sprite(icone(g.s)) }))
+  const itens = INGREDIENTES.map((g) => ({ ...g, img: sprite(icone(g.s)), caiu: false }))
+  const coleta = (s: string, lugar: [number, number]) => (coletados.set(s, lugar), palco.querySelector(`[data-g="${s}"]`)!.classList.add('coletado'))
+  /** Macieira derrubada: a maçã cai no primeiro chão livre em volta dela. */
+  const derruba = (it: (typeof itens)[number], [tx, ty]: [number, number]) => {
+    const [dx, dy] = [[0, 1], [1, 1], [-1, 1], [1, 0], [-1, 0], [0, -1]].find(([dx, dy]) => andavel(tx + dx, ty + dy)) ?? [0, 1]
+    Object.assign(it, { x: tx + dx, y: ty + dy, caiu: true })
+  }
   let tempo = 0 // segundos jogados, sem contar o mapa aberto
+  const ferramentas = FERRAMENTAS.map((f) => ({ ...f, img: sprite(f.g) })) // as que estão no chão
+  let mao: (typeof ferramentas)[number] | undefined
+  const slot = palco.querySelector<HTMLElement>('.mao')!
+  const abertos = new Set<string>() // tiles sólidos que a picareta, o machado ou a chave abriram
+  const abre = (tx: number, ty: number) => (abertos.add(`${tx},${ty}`), piso(mapa.getContext('2d')!, chao(tx, ty), tx, ty))
+  const larga = (g: Grid, tx: number, ty: number) => soltos.push({ img: sprite(g), x: tx * T, y: ty * T, pe: ty * T + pe(g) }) // o que cai no chão
+  /** Caminho mais curto, tile a tile, contando o que já foi aberto. */
+  const rota = (de: [number, number], para: [number, number]) => {
+    const veio = new Map<string, [number, number] | undefined>([[String(de), undefined]]), fila = [de]
+    for (const p of fila) {
+      if (String(p) === String(para)) break
+      for (const [dx, dy] of VIZINHOS.slice(0, 4)) {
+        const q: [number, number] = [p[0] + dx, p[1] + dy]
+        if (!veio.has(String(q)) && !quebrados.has(String(q)) && (andavel(...q) || abertos.has(String(q)))) veio.set(String(q), p), fila.push(q)
+      }
+    }
+    const r: [number, number][] = []
+    for (let p: [number, number] | undefined = para; p; p = veio.get(String(p))) r.unshift(p)
+    return r
+  }
+  const euDeitado = sprite(deitado(dwarfSprite(eu.nome, eu.oficio, 'dormindo', eu.visual)))
+  let dormeAte = 0, cama: [number, number] | undefined // Sleep: deita na cama e a tela escurece e clareia
+  const quebrados = new Set<string>() // tiles de ponte que o martelo quebrou: viraram rio
+  let boia: [number, number][] = [] // levado pela correnteza, tile a tile
+  /** O martelo parte a ponte de madeira no meio: Henridu cai, a correnteza leva até o fim do rio e ele sai na margem, na borda do mapa. A Mariana vai dormir de desgosto. */
+  const quebraPonte = () => {
+    quebrados.add(String(MEIO_PONTE))
+    rio.push([...MEIO_PONTE])
+    boia = [[MEIO_PONTE[0], y], ...Array.from({ length: FIM_RIO - MEIO_PONTE[1] + 1 }, (_, k): [number, number] => [MEIO_PONTE[0], MEIO_PONTE[1] + k]), [MEIO_PONTE[0] + 1, FIM_RIO], SAIDA_RIO]
+    const mariana = outros.find((o) => o.id === 'pontes')!
+    mariana.fala = "My bridge! ...I'm going to bed. Don't talk to me."
+    const coberta = sprite(escondido(mariana.g))
+    fugindo.set(mariana, { r: rota([mariana.x, mariana.y], [CAMA_MARIANA[0], CAMA_MARIANA[1] + 1]), v: 1.5, fim: () => Object.assign(mariana, { x: CAMA_MARIANA[0], y: CAMA_MARIANA[1], img: coberta, fala: 'Zzz... three dwarves jumping... zzz...', dorme: true }) })
+  }
+  const fugindo = new Map<(typeof outros)[number], { r: [number, number][]; v: number; fim?: () => void }>() // preso solto indo embora: rota e tiles por segundo
+  let ouviu: (typeof outros)[number] | undefined, grasnaAte = 0, grasna = '' // o papagaio vermelho repete a última fala que Henridu ouviu
+  const louro = aves.find((a) => a.x === LOURO[0] * T && a.y === LOURO[1] * T)!
   botao.addEventListener('click', () => acao?.fazer(), opt)
 
   // mapa aberto pausa o jogo
@@ -806,7 +986,7 @@ export function modoLivre(palco: HTMLElement, aoVencer: (segundos: number) => vo
   const bate = (ax: number, ay: number) => {
     for (let ty = Math.floor((ay + 8) / T); ty <= Math.floor((ay + 15.99) / T); ty++)
       for (let tx = Math.floor((ax + 3) / T); tx <= Math.floor((ax + 12.99) / T); tx++)
-        if (!andavel(tx, ty) || outros.some((o) => o.s > 1 && em(o, tx, ty)) || bichos.some((b) => b.w > 1 && ty === b.y && tx >= b.x && tx < b.x + b.w)) return true
+        if ((!andavel(tx, ty) && !abertos.has(`${tx},${ty}`)) || quebrados.has(`${tx},${ty}`) || outros.some((o) => o.s > 1 && em(o, tx, ty)) || bichos.some((b) => b.w > 1 && ty === b.y && tx >= b.x && tx < b.x + b.w)) return true
     return false
   }
   /** Anda num eixo; se bater numa quina, escorrega até 6 px para o lado livre e passa. */
@@ -833,7 +1013,14 @@ export function modoLivre(palco: HTMLElement, aoVencer: (segundos: number) => vo
     // movimento livre: as teclas seguradas somam, diagonal incluída, sempre na mesma velocidade
     let vx = 0, vy = 0
     for (const k of new Set(segurando)) (vx += DIRECAO[k][0]), (vy += DIRECAO[k][1])
-    const len = Math.hypot(vx, vy)
+    const len = agora < dormeAte || boia.length ? 0 : Math.hypot(vx, vy) // dormindo ou boiando não anda
+    if (boia.length) { // a correnteza leva rio abaixo, 3 tiles por segundo
+      const [bx, by] = boia[0], d = Math.hypot(bx * T - fx, by * T - fy), v = T * 3 * dt
+      if (d > v) (fx += ((bx * T - fx) / d) * v), (fy += ((by * T - fy) / d) * v)
+      else (fx = bx * T), (fy = by * T), boia.shift()
+      x = Math.floor((fx + 8) / T)
+      y = Math.floor((fy + 12) / T)
+    }
     if (len) {
       const v = ((montado ? 2 : 1) * T * dt) / PASSO / len // a cavalo anda o dobro
       if (vx) olhaEsq = vx < 0
@@ -842,7 +1029,20 @@ export function modoLivre(palco: HTMLElement, aoVencer: (segundos: number) => vo
       x = Math.floor((fx + 8) / T)
       y = Math.floor((fy + 12) / T)
     }
+    for (const [o, { r, v: vel, fim }] of fugindo) { // tile a tile pela rota
+      const [tx, ty] = r[0], d = Math.hypot(tx - o.x, ty - o.y), v = dt * vel
+      if (d > v) (o.x += ((tx - o.x) / d) * v), (o.y += ((ty - o.y) / d) * v)
+      else if (((o.x = tx), (o.y = ty)), r.shift(), !r.length) fugindo.delete(o), fim?.()
+    }
     for (const b of bichos) {
+      if (b.foge.length) { // fugindo pela porteira: tile a tile, rápido, sem olhar o chão
+        b.t = Math.min(1, b.t + dt / (PASSO * 0.9))
+        if (b.t < 1) continue
+        const [nx, ny] = b.foge.shift()!
+        if (nx !== b.x) b.esq = nx < b.x
+        ;(b.de = [b.x, b.y]), (b.x = nx), (b.y = ny), (b.t = 0)
+        continue
+      }
       b.t = Math.min(1, b.t + dt / (PASSO * 2.5))
       if (b.t < 1 || Math.random() > dt * 0.7) continue
       const [dx, dy] = Object.values(DIRECAO)[Math.floor(Math.random() * 4)]
@@ -866,10 +1066,22 @@ export function modoLivre(palco: HTMLElement, aoVencer: (segundos: number) => vo
     ctx.setTransform(2, 0, 0, 2, -cx * 2, -cy * 2)
     ctx.drawImage(mapa, 0, 0)
     for (const [ax, ay] of rio) agua(ctx, ax, ay, agora)
+    for (const [ax, ay] of lavas) lava(ctx, ax, ay, agora)
     aves.forEach((a, k) => { // cada papagaio bate as asas um pouco a cada 3s, fora de compasso com os vizinhos
+      if (a.voa !== undefined) { // espantado: sobe para a direita batendo as asas rápido e some; o poleiro fica
+        const t = (agora - a.voa) / 1000
+        ctx.drawImage(a.poleiro, a.x, a.y)
+        return ctx.drawImage(a.voo[Math.floor(agora / 60) % 4], a.x + t * 40 + t * t * 30, a.y - t * 60)
+      }
       const t = (agora + k * 1100) % 3000
       ctx.drawImage(a.quadros[t < 640 ? Math.floor(t / 80) % 4 : 0], a.x, a.y)
     })
+    const zzz = (tx: number, ty: number) => { for (let z = 0; z < 3; z++) { // zzz subindo do travesseiro
+      const t = (agora / 1800 + z / 3) % 1
+      ctx.fillStyle = `rgba(233, 220, 196, ${1 - t})`
+      ctx.font = `${6 + z * 2}px VT323, monospace`
+      ctx.fillText('z', tx * T + 8 + t * 6 + z * 3, ty * T + 2 - t * 14)
+    } }
     const boneco = (im: HTMLCanvasElement, bx: number, by: number, esq: boolean) => {
       ctx.save()
       ctx.translate(bx + (esq ? im.width : 0), by)
@@ -882,24 +1094,42 @@ export function modoLivre(palco: HTMLElement, aoVencer: (segundos: number) => vo
     const bichoPerto = (tipo: string) => bichos.find((b) => b.tipo === tipo && Math.max(b.x - x, x - b.x - b.w + 1, Math.abs(b.y - y)) <= 1)
     // Y-sort: quem tem o pé mais embaixo é desenhado depois, na frente. Objetos entram primeiro, então no empate o boneco ganha.
     const cena: [number, () => void][] = soltos.map((s) => [s.pe, () => ctx.drawImage(s.img, s.x, s.y)])
-    outros.forEach((o, k) => cena.push([o.y * T + o.pe, () => boneco(o.img, o.x * T, o.y * T - (Math.floor(agora / 500 + k) % 2), viz(o) && x < o.x)]))
+    outros.forEach((o, k) => {
+      const [ox, oy] = sobra(o.g, o.s)
+      cena.push([o.y * T - oy + o.pe, () => {
+        boneco(o.img, o.x * T - ox, o.y * T - oy - ('dorme' in o ? 0 : Math.floor(agora / (fugindo.has(o) ? 540 / fugindo.get(o)!.v : 500) + k) % 2), 'dorme' in o ? false : fugindo.has(o) ? fugindo.get(o)!.r[0][0] < o.x : viz(o) && x < o.x)
+        if ('dorme' in o) zzz(o.x, o.y)
+      }])
+    })
     for (const b of bichos) {
       const by = meio((b.de[1] + (b.y - b.de[1]) * b.t) * T) + T - b.img.height
-      cena.push([by + b.pe, () => boneco(b.img, meio((b.de[0] + (b.x - b.de[0]) * b.t) * T), by, b.esq)])
+      cena.push([by + b.pe, () => boneco(b.img, meio((b.de[0] + (b.x - b.de[0]) * b.t) * T) - (b.esq ? b.img.width - b.w * T : 0), by, b.esq)]) // virado, a cabeça do cavalo sobra para a esquerda
     }
-    for (const it of itens) if (!it.colmeia && !it.tile && !coletados.has(it.s)) { // flutua sobre a sombra, para não sumir no meio do trigo e dos cogumelos
-      const sobe = Math.round(Math.sin(agora / 250) * 2)
-      cena.push([it.y * T + T, () => {
-        ctx.fillStyle = '#00000060'
-        ctx.fillRect(it.x * T + 4, it.y * T + 13, 8, 2)
-        ctx.drawImage(it.img, it.x * T, it.y * T - 4 + sobe)
+    const flutua = (im: HTMLCanvasElement, tx: number, ty: number) => cena.push([ty * T + T, () => { // flutua sobre a sombra, para não sumir no meio do trigo e dos cogumelos
+      ctx.fillStyle = '#00000060'
+      ctx.fillRect(tx * T + 4, ty * T + 13, 8, 2)
+      ctx.drawImage(im, tx * T, ty * T - 4 + Math.round(Math.sin(agora / 250) * 2))
+    }])
+    for (const it of itens) if (!it.colmeia && !it.tile && !it.minerio && (!it.arvore || it.caiu) && !coletados.has(it.s)) flutua(it.img, it.x, it.y)
+    for (const f of ferramentas) flutua(f.img, f.x, f.y)
+    if (agora < dormeAte) cena.push([cama![1] * T + T, () => (ctx.drawImage(euDeitado, cama![0] * T, cama![1] * T), zzz(...cama!))])
+    else if (boia.length) { // na água só a cabeça aparece; embaixo da ponte de pedra some
+      if (MAPA[y][x] !== '-') cena.push([py + T, () => {
+        ctx.drawImage(img[0], 0, 0, 16, 9, px, py + 5, 16, 9)
+        ctx.fillStyle = '#d8f4ff'
+        ctx.fillRect(px + 1 + (Math.floor(agora / 150) % 3), py + 14, 3, 1)
+        ctx.fillRect(px + 11 - (Math.floor(agora / 150) % 3), py + 14, 3, 1)
       }])
     }
-    cena.push([montado ? py + T - montado.img.height + montado.pe : py + peEu, () => { // montado, anão e cavalo são uma peça só
-      if (montado) boneco(len ? [montado.img, trote[0], montado.img, trote[1]][Math.floor(agora / 90) % 4] : montado.img, px - 8, py + T - montado.img.height, olhaEsq)
+    else cena.push([montado ? py + T - montado.img.height + montado.pe : py + peEu, () => { // montado, anão e cavalo são uma peça só
+      if (montado) boneco(len ? [montado.img, trote[0], montado.img, trote[1]][Math.floor(agora / 90) % 4] : montado.img, px - 8 - (olhaEsq ? montado.img.width - montado.w * T : 0), py + T - montado.img.height, olhaEsq)
       boneco((corDe <= agora && agora < corAte ? cor : img)[len && !montado ? Math.floor(agora / 130) % 4 : 0], px, py - (montado ? 15 : 0), olhaEsq)
     }])
     cena.sort((a, b) => a[0] - b[0]).forEach(([, desenha]) => desenha())
+    if (agora < dormeAte) { // a noite cai e passa enquanto ele dorme
+      ctx.fillStyle = `rgba(8, 8, 24, ${Math.sin((Math.PI * (dormeAte - agora)) / SONO) * 0.75})`
+      ctx.fillRect(cx, cy, 320, 180)
+    }
 
     // baforada: bolhas de fogo da boca do dragão até o anão
     const dragao = outros.find((o) => o.id === 'dragao')!
@@ -914,20 +1144,81 @@ export function modoLivre(palco: HTMLElement, aoVencer: (segundos: number) => vo
 
     // o que E/Espaço faz agora
     const cavalo = bichoPerto('V'), cobra = bichoPerto('z')
-    const tileAoLado = (ch: string) => [[0, 0], ...VIZINHOS.slice(0, 8)].map(([dx, dy]): [number, number] => [x + dx, y + dy]).find(([tx, ty]) => MAPA[ty]?.[tx] === ch)
+    const arisco = aves.find((a) => a.x === ARISCO[0] * T && a.y === ARISCO[1] * T && a.voa === undefined)
+    const pertoArisco = arisco && Math.max(Math.abs(ARISCO[0] - x), Math.abs(ARISCO[1] - y)) <= 1
+    const pertoLouro = Math.max(Math.abs(LOURO[0] - x), Math.abs(LOURO[1] - y)) <= 1
+    const tileAoLado = (chs: string) => [[0, 0], ...VIZINHOS.slice(0, 8)].map(([dx, dy]): [number, number] => [x + dx, y + dy]).find(([tx, ty]) => chs.includes(MAPA[ty]?.[tx] ?? '#') && !abertos.has(`${tx},${ty}`))
+    const camaAoLado = [[0, 0], ...VIZINHOS.slice(0, 8)] // a cama ocupa dois tiles: 'k' e o '+' à direita
+      .map(([dx, dy]): [number, number] => [x + dx - (MAPA[y + dy]?.[x + dx] === '+' && MAPA[y + dy][x + dx - 1] === 'k' ? 1 : 0), y + dy])
+      .find(([tx, ty]) => MAPA[ty]?.[tx] === 'k' && !outros.some((o) => 'dorme' in o && o.x === tx && o.y === ty))
+    const ferr = ferramentas.find((f) => Math.max(Math.abs(f.x - x), Math.abs(f.y - y)) <= 1)
+    const rocha = mao?.s === 'picareta' ? tileAoLado('56789') : undefined
+    const tronco = mao?.s === 'machado' ? tileAoLado('Yä') : undefined
+    const porteira = tileAoLado('ã')
+    const naPonte = mao?.s === 'martelo' && !montado && MAPA[y][x] === '=' && !quebrados.size
+    const barril = mao?.s === 'martelo' ? tileAoLado('B') : undefined
+    const cavada = mao?.s === 'pa' ? tileAoLado('ç') : undefined
+    const barras = mao?.s === 'chave' ? tileAoLado('ì') : undefined // a chave só entra na fechadura
+    let [ga] = barras ?? [0], gb = ga // a cela é a fileira inteira de grades
+    while (barras && 'íì'.includes(MAPA[barras[1]][ga - 1])) ga--
+    while (barras && 'íì'.includes(MAPA[barras[1]][gb + 1])) gb++
+    const preso = barras && outros.find((o) => 'preso' in o && o.y < barras[1] && o.x >= ga && o.x <= gb)
     let onde: [number, number] | undefined
-    const item = itens.find((it) => !coletados.has(it.s) && (onde = it.tile ? tileAoLado(it.tile) : Math.max(Math.abs(it.x - x), Math.abs(it.y - y)) <= 1 ? [it.x, it.y] : undefined))
+    const macieira = itens.find((it) => it.arvore && !it.caiu)
+    const item = itens.find((it) => !coletados.has(it.s) && !it.minerio && (!it.arvore || it.caiu) && (onde = it.tile ? tileAoLado(it.tile) : Math.max(Math.abs(it.x - x), Math.abs(it.y - y)) <= 1 ? [it.x, it.y] : undefined))
     const lugar = onde!
     const vaga = montado && [x + 1, x - 2].find((hx) => andavel(hx, y) && andavel(hx + 1, y) && !ocupado(hx, y) && !ocupado(hx + 1, y))
     acao = item ? { rotulo: `Collect ${item.nome}`, fazer: () => { // a cavalo também dá
-        coletados.set(item.s, lugar)
+        coleta(item.s, lugar)
         const colhido = soltos.findIndex((s) => s.x === lugar[0] * T && s.y === lugar[1] * T) // o pé colhido some do chão
         if (item.tile && colhido >= 0) soltos.splice(colhido, 1)
         else if (item.tile) { // arbusto é sólido e está pintado no chão: repinta o tile com ele sem frutinha
           piso(mapa.getContext('2d')!, chao(...lugar), ...lugar)
           pinta(mapa.getContext('2d')!, ARBUSTO_COLHIDO, lugar[0] * T, lugar[1] * T)
         }
-        palco.querySelector(`[data-g="${item.s}"]`)!.classList.add('coletado')
+      } }
+      : ferr ? { rotulo: `Take ${ferr.nome}`, fazer: () => {
+        ferramentas.splice(ferramentas.indexOf(ferr), 1)
+        if (mao) ferramentas.push({ ...mao, x: ferr.x, y: ferr.y }) // só cabe uma: a da mão fica no lugar da outra
+        mao = ferr
+        slot.innerHTML = svg(mao.g, 16)
+        slot.title = mao.nome
+      } }
+      : rocha ? { rotulo: 'Mine', fazer: () => {
+        const veio = MAPA[rocha[1]][rocha[0]]
+        larga(ENTULHO[veio], ...rocha)
+        abre(...rocha)
+        const carvao = itens.find((it) => it.minerio === veio && !coletados.has(it.s))
+        if (carvao) coleta(carvao.s, rocha) // veio de carvão quebrado: o carvão vai direto para a sacola
+      } }
+      : tronco ? { rotulo: 'Chop', fazer: () => {
+        if (macieira && MAPA[tronco[1]][tronco[0]] === 'ä') derruba(macieira, tronco) // derrubada, a macieira solta a maçã
+        soltos.splice(soltos.findIndex((s) => s.x === tronco[0] * T - 8 && s.y === tronco[1] * T - 20), 1)
+        abre(...tronco)
+        larga(TORAS, ...tronco) // madeira cortada
+      } }
+      : naPonte ? { rotulo: 'Break Bridge', fazer: () => quebraPonte() }
+      : barril ? { rotulo: 'Smash Barrel', fazer: () => {
+        abre(...barril)
+        larga(BARRIL_QUEBRADO, ...barril)
+        if (barril[0] === BARRIL_DIAMANTE[0] && barril[1] === BARRIL_DIAMANTE[1]) larga(icone('d'), ...barril)
+      } }
+      : porteira ? { rotulo: 'Open Gate', fazer: () => {
+        abre(...porteira)
+        pinta(mapa.getContext('2d')!, PORTEIRA_ABERTA, porteira[0] * T, porteira[1] * T)
+        if (porteira[0] === 61) bichos.filter((b) => b.tipo === 'G').forEach((b, k) => (b.foge = rota([b.x, b.y], FUGA_GALINHAS[k % FUGA_GALINHAS.length]).slice(1))) // as galinhas disparam porteira afora
+      } }
+      : cavada ? { rotulo: 'Dig', fazer: () => abre(...cavada) } // o túnel do kobold abre de vez para o cofre
+      : barras ? { rotulo: preso ? `Free ${preso.nome}` : 'Unlock Cell', fazer: () => { // toda cela abre, com ou sem preso
+        for (let gx = ga; gx <= gb; gx++) abre(gx, barras[1])
+        if (!preso) return
+        if (preso.id === 'preso-goblin') { // o goblin dispara para o livre comércio, junto dos outros goblins
+          preso.fala = 'Freedom! So long, beardy! Hahaha!'
+          fugindo.set(preso, { r: rota([preso.x, preso.y], [46, 45]), v: 6 })
+        } else if (preso.id === 'preso-anao') { // o contrabandista vai embora a pé, sem pressa, direto para a taverna
+          preso.fala = "Thanks, rookie. I'll be at the tavern. Don't tell the guard."
+          fugindo.set(preso, { r: rota([preso.x, preso.y], [52, 24]), v: 1.5 })
+        } else Object.assign(preso, { y: barras[1] + 1, fala: 'Free at last! I owe you one, dwarf. Not gold, but one.' }) // sai para o corredor
       } }
       : montado
       ? vaga === undefined ? undefined : { rotulo: 'Dismount', fazer: () => {
@@ -939,7 +1230,11 @@ export function modoLivre(palco: HTMLElement, aoVencer: (segundos: number) => vo
       : cavalo ? { rotulo: 'Mount', fazer: () => ((montado = cavalo), bichos.splice(bichos.indexOf(cavalo), 1)) }
       : viz(dragao) ? { rotulo: 'Poke', fazer: () => ((fogoAte = agora + 700), (corDe = agora + 500), (corAte = agora + 5500), (cor = preto)) }
       : cobra ? { rotulo: 'Grab', fazer: () => ((corDe = agora), (corAte = agora + 5000), (cor = roxo)) }
+      : camaAoLado ? { rotulo: 'Sleep', fazer: () => ((cama = camaAoLado), (dormeAte = agora + SONO)) }
+      : pertoArisco ? { rotulo: 'Shoo', fazer: () => (arisco.voa = agora) }
+      : pertoLouro ? { rotulo: 'Listen', fazer: () => ((grasnaAte = agora + 4000), (grasna = ouviu ? `Squawk! ${ouviu.fala} Squawk!` : 'Squawk! Pretty dwarf! Squawk!')) }
       : undefined
+    if (agora < dormeAte || boia.length) acao = undefined
     botao.title = acao ? `${acao.rotulo} (E)` : 'Interact (E or Space)'
     botao.classList.toggle('aceso', !!acao)
 
@@ -955,15 +1250,22 @@ export function modoLivre(palco: HTMLElement, aoVencer: (segundos: number) => vo
     }
 
     // o balão aparece e some com transição (CSS); ao sumir, segue preso a quem falou por último
-    balao.classList.toggle('visivel', !!perto)
-    if (perto && balao.dataset.id !== perto.id) {
-      balao.dataset.id = perto.id
-      balao.innerHTML = `<b>${perto.nome}</b><br>${perto.fala}`
+    if (perto && perto.id !== 'papagaios') ouviu = perto // o dono dos papagaios não conta, eles já sabem a fala dele
+    if (!pertoLouro) grasnaAte = 0
+    const louroFala = agora < grasnaAte
+    balao.classList.toggle('visivel', !!perto || louroFala)
+    const fala = louroFala ? `<b>Parrot</b><br>${grasna}` : perto && `<b>${perto.nome}</b><br>${perto.fala}`
+    if (fala && balao.dataset.fala !== fala) {
+      balao.dataset.id = louroFala ? 'louro' : perto!.id
+      balao.dataset.fala = balao.innerHTML = fala
     }
     const quem = outros.find((o) => o.id === balao.dataset.id)
-    if (quem) {
+    if (balao.dataset.id === 'louro') {
+      balao.style.left = `${(louro.x + 8 - cx) * 2}px`
+      balao.style.top = `${(louro.y - cy) * 2 - 4}px`
+    } else if (quem) { // em cima da cabeça: o orc é mais alto que um tile
       balao.style.left = `${(quem.x * T + 8 * quem.s - cx) * 2}px`
-      balao.style.top = `${(quem.y * T - cy) * 2 - 4}px`
+      balao.style.top = `${(quem.y * T - sobra(quem.g, quem.s)[1] - cy) * 2 - 4}px`
     }
     if (venceu(coletados, x, y)) return aoVencer(Math.round(tempo))
     requestAnimationFrame(quadro)
