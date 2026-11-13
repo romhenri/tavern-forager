@@ -31,6 +31,7 @@ it('cada ingrediente dá para pegar, e fora da taverna', () => {
     expect(alcanca([g.x, g.y]), g.nome).toBe(true)
     expect(naTaverna(g.x, g.y), g.nome).toBe(false)
     if (g.colmeia) expect(MAPA[g.y][g.x]).toBe('i')
+    else if (g.tile) expect(MAPA[g.y][g.x]).toBe(g.tile)
     else expect(andavel(g.x, g.y) && !ocupado.has(String([g.x, g.y])), g.nome).toBe(true)
   }
 })

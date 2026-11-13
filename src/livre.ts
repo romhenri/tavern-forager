@@ -87,17 +87,17 @@ export const LOCAL: Record<string, [number, number]> = {
   formigas: [89, 33], // formigueiro
 }
 
-/** Um de cada, cada um onde o sabor dele manda. O mel não fica no chão: sai da colmeia do meio. */
+/** Um de cada, cada um onde o sabor dele manda. O mel não fica no chão: sai da colmeia do meio. A cevada sai de qualquer pé de trigo (`tile`); x, y é só um deles. */
 export const INGREDIENTES = [
   { s: 'g', nome: 'Mushrooms', x: 6, y: 44 }, // cogumelos
-  { s: 'c', nome: 'Black Barley', x: 31, y: 32 }, // fazenda
+  { s: 'c', nome: 'Black Barley', x: 32, y: 32, tile: 'c' }, // fazenda
   { s: 'b', nome: 'Berries', x: 8, y: 36 }, // entre dois arbustos de frutinha, ao sul do jardim
   { s: 't', nome: 'Bactris', x: 23, y: 41 }, // livre comércio, dos mercadores
   { s: 'm', nome: 'Honey', x: 62, y: 27, colmeia: true },
 ]
 /** Paredes de dentro da taverna. */
 export const naTaverna = (x: number, y: number) => x >= 46 && x <= 61 && y >= 17 && y <= 25
-export const venceu = (coletados: Set<string>, x: number, y: number) => coletados.size === INGREDIENTES.length && naTaverna(x, y)
+export const venceu = (coletados: { size: number }, x: number, y: number) => coletados.size === INGREDIENTES.length && naTaverna(x, y)
 
 /** O que cada anão diz pela fortaleza: conversa do dia a dia, sem pedido de drink nem ingrediente. */
 export const FALAS: Record<string, string> = {
@@ -680,7 +680,7 @@ function desenhaMapa() {
 }
 
 /** Foto da fortaleza inteira, com todo mundo no seu lugar e o nome das zonas. Em dobro, como a tela do jogo. Com `eu`, marca onde Henrido está e o que ele já coletou. */
-export function mapaInteiro(eu?: [number, number], coletados = new Set<string>()) {
+export function mapaInteiro(eu?: [number, number], coletados = new Map<string, [number, number]>()) {
   const { mapa, soltos, rio, aves } = desenhaMapa()
   const c = Object.assign(document.createElement('canvas'), { width: mapa.width * 2, height: mapa.height * 2 })
   const ctx = c.getContext('2d')!
@@ -707,7 +707,7 @@ export function mapaInteiro(eu?: [number, number], coletados = new Set<string>()
   }
   // marcadores grandes, o mapa aparece a ~1/5 do tamanho: ingredientes já coletados e, por cima, a cabeça de Henrido
   const marca = (g: Grid, tx: number, ty: number, k: number) => ctx.drawImage(sprite(g), (tx * T + 8) * 2 - g[0].length * k / 2, (ty * T + 8) * 2 - g.length * k / 2, g[0].length * k, g.length * k)
-  for (const g of INGREDIENTES) if (coletados.has(g.s)) marca(icone(g.s), g.x, g.y, 5)
+  for (const [s, [tx, ty]] of coletados) marca(icone(s), tx, ty, 5) // onde foi coletado
   if (eu) marca(retrato(HENRIDO).slice(0, 10), eu[0], eu[1], 8) // só cabeça e barba
   return c
 }
@@ -766,7 +766,7 @@ export function modoLivre(palco: HTMLElement, aoVencer: (segundos: number) => vo
   let montado: (typeof bichos)[number] | undefined
   let fogoAte = 0, corDe = 0, corAte = 0, cor = img // baforada do dragão; cor do anão queimado ou envenenado
   let acao: { rotulo: string; fazer: () => void } | undefined
-  const coletados = new Set<string>()
+  const coletados = new Map<string, [number, number]>()
   const itens = INGREDIENTES.map((g) => ({ ...g, img: sprite(icone(g.s)) }))
   let tempo = 0 // segundos jogados, sem contar o mapa aberto
   botao.addEventListener('click', () => acao?.fazer(), opt)
@@ -885,7 +885,7 @@ export function modoLivre(palco: HTMLElement, aoVencer: (segundos: number) => vo
       const by = meio((b.de[1] + (b.y - b.de[1]) * b.t) * T) + T - b.img.height
       cena.push([by + b.pe, () => boneco(b.img, meio((b.de[0] + (b.x - b.de[0]) * b.t) * T), by, b.esq)])
     }
-    for (const it of itens) if (!it.colmeia && !coletados.has(it.s)) { // flutua sobre a sombra, para não sumir no meio do trigo e dos cogumelos
+    for (const it of itens) if (!it.colmeia && !it.tile && !coletados.has(it.s)) { // flutua sobre a sombra, para não sumir no meio do trigo e dos cogumelos
       const sobe = Math.round(Math.sin(agora / 250) * 2)
       cena.push([it.y * T + T, () => {
         ctx.fillStyle = '#00000060'
@@ -912,10 +912,11 @@ export function modoLivre(palco: HTMLElement, aoVencer: (segundos: number) => vo
 
     // o que E/Espaço faz agora
     const cavalo = bichoPerto('V'), cobra = bichoPerto('z')
-    const item = itens.find((it) => !coletados.has(it.s) && Math.max(Math.abs(it.x - x), Math.abs(it.y - y)) <= 1)
+    const tileAoLado = (ch: string) => [-1, 0, 1].some((dy) => [-1, 0, 1].some((dx) => MAPA[y + dy]?.[x + dx] === ch))
+    const item = itens.find((it) => !coletados.has(it.s) && (it.tile ? tileAoLado(it.tile) : Math.max(Math.abs(it.x - x), Math.abs(it.y - y)) <= 1))
     const vaga = montado && [x + 1, x - 2].find((hx) => andavel(hx, y) && andavel(hx + 1, y) && !ocupado(hx, y) && !ocupado(hx + 1, y))
     acao = item ? { rotulo: `Collect ${item.nome}`, fazer: () => { // a cavalo também dá
-        coletados.add(item.s)
+        coletados.set(item.s, item.tile ? [x, y] : [item.x, item.y])
         palco.querySelector(`[data-g="${item.s}"]`)!.classList.add('coletado')
       } }
       : montado
