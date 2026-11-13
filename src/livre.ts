@@ -87,11 +87,11 @@ export const LOCAL: Record<string, [number, number]> = {
   formigas: [89, 33], // formigueiro
 }
 
-/** Um de cada, cada um onde o sabor dele manda. O mel não fica no chão: sai da colmeia do meio. Cevada e cogumelo saem de qualquer pé do mapa (`tile`), que some ao ser colhido; x, y é só um deles. */
+/** Um de cada, cada um onde o sabor dele manda. O mel não fica no chão: sai da colmeia do meio. Cevada, cogumelo e bagas saem de qualquer pé do mapa (`tile`), que some ao ser colhido; x, y é só um deles. */
 export const INGREDIENTES = [
   { s: 'g', nome: 'Mushrooms', x: 2, y: 40, tile: 'g' }, // cogumelos
   { s: 'c', nome: 'Black Barley', x: 32, y: 32, tile: 'c' }, // fazenda
-  { s: 'b', nome: 'Berries', x: 8, y: 36 }, // entre dois arbustos de frutinha, ao sul do jardim
+  { s: 'b', nome: 'Berries', x: 6, y: 36, tile: 'u' }, // arbusto de frutinha
   { s: 't', nome: 'Bactris', x: 23, y: 41 }, // livre comércio, dos mercadores
   { s: 'm', nome: 'Honey', x: 62, y: 27, colmeia: true },
 ]
@@ -130,7 +130,9 @@ const ZONAS: [string, number, number][] = [
 const SALAS: [string, number, number, number][] = [
 ]
 
-export const andavel = (x: number, y: number) => !SOLIDO.includes(MAPA[y]?.[x] ?? '#')
+/** Arbustos colhidos nesta partida: viram chão. */
+const colhidos = new Set<string>()
+export const andavel = (x: number, y: number) => colhidos.has(String([x, y])) || !SOLIDO.includes(MAPA[y]?.[x] ?? '#')
 
 // ---------------------------------------------------------------- desenho
 
@@ -723,6 +725,7 @@ const DIRECAO: Record<string, [number, number]> = {
 /** Liga o jogo no palco com Henrido na taverna. Sai sozinho quando o palco troca de tela; `aoVencer` recebe os segundos jogados. */
 export function modoLivre(palco: HTMLElement, aoVencer: (segundos: number) => void) {
   const eu = HENRIDO
+  colhidos.clear()
   const outros = [
     ...ANOES.map((a) => ({ id: a.id, nome: a.nome, fala: FALAS[a.id], x: LOCAL[a.id][0], y: LOCAL[a.id][1], s: 1, img: sprite(retrato(a)), pe: pe(retrato(a)) })),
     ...EXTRAS.map((e) => ({ ...e, img: sprite(e.g), pe: pe(e.g) })),
@@ -921,6 +924,7 @@ export function modoLivre(palco: HTMLElement, aoVencer: (segundos: number) => vo
         coletados.set(item.s, lugar)
         const colhido = soltos.findIndex((s) => s.x === lugar[0] * T && s.y === lugar[1] * T) // o pé colhido some do chão
         if (item.tile && colhido >= 0) soltos.splice(colhido, 1)
+        else if (item.tile) colhidos.add(String(lugar)), piso(mapa.getContext('2d')!, chao(...lugar), ...lugar) // arbusto é sólido e está pintado no chão: repinta com a grama em volta e libera a passagem
         palco.querySelector(`[data-g="${item.s}"]`)!.classList.add('coletado')
       } }
       : montado
