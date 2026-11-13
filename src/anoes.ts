@@ -10,7 +10,7 @@ export type Anao = {
 }
 
 /** O jogador: anão novo na fortaleza, ninguém o conhece ainda. */
-export const HENRIDO: Anao = { id: 'henrido', nome: 'Henrido the Rookie', oficio: 'Forager', visual: { cabelo: '#4a2a14', pele: '#f0c8a0', barba: 'curta', roupa: '#3a6a8a' } }
+export const HENRIDO: Anao = { id: 'henrido', nome: 'Henrido the Rookie', oficio: 'Forager', visual: { cabelo: '#3a200e', pele: '#e4b48a', barba: 'curta', roupa: '#3a6a8a' } }
 
 /** Os anões da Taverna do Autômato, agora só moradores da fortaleza. */
 export const ANOES: Anao[] = [
