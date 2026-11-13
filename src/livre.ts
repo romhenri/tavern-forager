@@ -87,9 +87,9 @@ export const LOCAL: Record<string, [number, number]> = {
   formigas: [89, 33], // formigueiro
 }
 
-/** Um de cada, cada um onde o sabor dele manda. O mel não fica no chão: sai da colmeia do meio. A cevada sai de qualquer pé de trigo (`tile`); x, y é só um deles. */
+/** Um de cada, cada um onde o sabor dele manda. O mel não fica no chão: sai da colmeia do meio. Cevada e cogumelo saem de qualquer pé do mapa (`tile`), que some ao ser colhido; x, y é só um deles. */
 export const INGREDIENTES = [
-  { s: 'g', nome: 'Mushrooms', x: 6, y: 44 }, // cogumelos
+  { s: 'g', nome: 'Mushrooms', x: 2, y: 40, tile: 'g' }, // cogumelos
   { s: 'c', nome: 'Black Barley', x: 32, y: 32, tile: 'c' }, // fazenda
   { s: 'b', nome: 'Berries', x: 8, y: 36 }, // entre dois arbustos de frutinha, ao sul do jardim
   { s: 't', nome: 'Bactris', x: 23, y: 41 }, // livre comércio, dos mercadores
@@ -912,11 +912,15 @@ export function modoLivre(palco: HTMLElement, aoVencer: (segundos: number) => vo
 
     // o que E/Espaço faz agora
     const cavalo = bichoPerto('V'), cobra = bichoPerto('z')
-    const tileAoLado = (ch: string) => [-1, 0, 1].some((dy) => [-1, 0, 1].some((dx) => MAPA[y + dy]?.[x + dx] === ch))
-    const item = itens.find((it) => !coletados.has(it.s) && (it.tile ? tileAoLado(it.tile) : Math.max(Math.abs(it.x - x), Math.abs(it.y - y)) <= 1))
+    const tileAoLado = (ch: string) => [[0, 0], ...VIZINHOS.slice(0, 8)].map(([dx, dy]): [number, number] => [x + dx, y + dy]).find(([tx, ty]) => MAPA[ty]?.[tx] === ch)
+    let onde: [number, number] | undefined
+    const item = itens.find((it) => !coletados.has(it.s) && (onde = it.tile ? tileAoLado(it.tile) : Math.max(Math.abs(it.x - x), Math.abs(it.y - y)) <= 1 ? [it.x, it.y] : undefined))
+    const lugar = onde!
     const vaga = montado && [x + 1, x - 2].find((hx) => andavel(hx, y) && andavel(hx + 1, y) && !ocupado(hx, y) && !ocupado(hx + 1, y))
     acao = item ? { rotulo: `Collect ${item.nome}`, fazer: () => { // a cavalo também dá
-        coletados.set(item.s, item.tile ? [x, y] : [item.x, item.y])
+        coletados.set(item.s, lugar)
+        const colhido = soltos.findIndex((s) => s.x === lugar[0] * T && s.y === lugar[1] * T) // o pé colhido some do chão
+        if (item.tile && colhido >= 0) soltos.splice(colhido, 1)
         palco.querySelector(`[data-g="${item.s}"]`)!.classList.add('coletado')
       } }
       : montado
