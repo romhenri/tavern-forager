@@ -91,7 +91,7 @@ export const LOCAL: Record<string, [number, number]> = {
 export const INGREDIENTES = [
   { s: 'g', nome: 'Mushrooms', x: 6, y: 44 }, // cogumelos
   { s: 'c', nome: 'Black Barley', x: 31, y: 32 }, // fazenda
-  { s: 'b', nome: 'Berries', x: 8, y: 21 }, // jardim
+  { s: 'b', nome: 'Berries', x: 8, y: 36 }, // entre dois arbustos de frutinha, ao sul do jardim
   { s: 't', nome: 'Bactris', x: 23, y: 41 }, // livre comércio, dos mercadores
   { s: 'm', nome: 'Honey', x: 62, y: 27, colmeia: true },
 ]
