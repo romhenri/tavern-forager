@@ -24,8 +24,8 @@ export const MAPA = [
   '#ww}}ww<www<<ww#EE??EEvvEE??EE#uxxxxxxxxBxxxx#BBwRORORORwrrrrr#xSHMXxxxxSHMXx#k+xk+#éwéwé#uxxxu#',
   '#wwwwwwwwwwwwww#vvvvvvvvvvvvvv#xxxxxxxxxxxxxx#Bwwwwwwwwwwrr!rr#xxxxxxxxxxxxxx#?xxx?#wwwww#xxxxx#',
   '#w{www{www{wwww#v*v*vvvvvv*v*v#x;;;xxxxxx;;;x#wwAWAWAWAwwwwwww#xxDxxxxDxxxDxx#k+xk+#áwáwá#xxxxx#',
-  '#wwwwwwwwwwwwwwwv;v;vvvvvv;v;vvx]++xxxxxx]++xwwwwwwwwwwwww;;ww#xxxxxxxxxxxxxxxxxxk+#wwwwwwxxxxx#',
-  '#wwwwwwwwwwwwww#vvvvvvvvvvvvvvvx;;;xxxxxx;;;xwww;;;wwwwwww[+ww#xxxxxxxxxxxxxxxxxxx?#wwwwwwxxxxu#',
+  '#wwwwwwwwwwwwwwwv;v;vvvvvv;v;vvx]++xxxxxx]++xwwwwwwwò+wwww;;ww#xxxxxxxxxxxxxxxxxxk+#wwwwwwxxxxx#',
+  '#wwwwwwwwwwwwww#vvvvvvvvvvvvvvvx;;;xxxxxx;;;xwww;;;w++wwww[+ww#xxxxxxxxxxxxxxxxxxx?#wwwwwwxxxxu#',
   '#w{www{www{wwww#v*v*vvvvvv*v*vvxxxxxxxxxxxxxx#ww]++ww;;;ww;;ww#xxxxxxxxxxxxxxxxxxk+#wwwwwwxxxxB#',
   '#wwwwwwwwwwwwww#v;v;vvvvvv;v;v#xxxxxxxxxxxxxx#ww;;;ww]++wwwwww#xxDxxxxDxxxDxx#k+xk+#áwáwá#xxxxx#',
   '#wwwwwwwwwwwwww#vvvvvvvvvvvvvv#xxxxxxxxxxxxxx#wwwwwww;;;wwwwww#xxxxxxxxxxxxxx#?xxx?#wwwww#xxxxx#',
@@ -61,30 +61,30 @@ export const MAPA = [
 ]
 const T = 16
 const PAREDE = '#o1234' // rocha e veios de minério
-const SOLIDO = PAREDE + '~BTFLbfENIYuDSHMXJKZmCUROAW$@&%56789!^(+[]jqyi{}<*?>|k"0_:`)áéóíìúüçäãõ' // P, G, h (ovelha), Q, V e z são bichos: o chão embaixo é livre, eles é que ocupam. Trigo (c), cogumelos (g, e, n), mato (/) e cadeira (;) se atravessam.
+const SOLIDO = PAREDE + '~BTFLbfENIYuDSHMXJKZmCUROAW$@&%56789!^(+[]jqyi{}<*?>|k"0_:`)áéóíìúüçäãõò' // P, G, h (ovelha), Q, V e z são bichos: o chão embaixo é livre, eles é que ocupam. Trigo (c), cogumelos (g, e, n), mato (/) e cadeira (;) se atravessam.
 // Objetos maiores que um tile ficam com a letra no canto de cima à esquerda e '+' no resto.
 export const INICIO: [number, number] = [54, 21] // meio da taverna
 
-/** Onde cada anão fica, perto do que faz. */
+/** Aniversário da Gabi: todo mundo na taverna, em volta do bolo. A Scarlett canta no palco e o Urist serve no balcão. */
 export const LOCAL: Record<string, [number, number]> = {
-  hidromel: [7, 10], // mina
-  cerveja: [67, 20], // quartel
-  grogue: [22, 9], // forja
-  licor: [22, 34], // fazenda
+  hidromel: [54, 20], // festa
+  cerveja: [51, 21], // festa
+  grogue: [52, 22], // festa
+  licor: [51, 22], // festa
   furia: [49, 18], // barris da taverna
-  contra: [72, 23], // quartel
-  teclados: [45, 10], // biblioteca
-  nobre: [70, 8], // museu
-  trapacas: [25, 42], // livre comércio
-  lampadas: [29, 43], // lampiões do livre comércio
-  moderado: [50, 47], // livre comércio
-  comprido: [25, 30], // fazenda
-  mari: [86, 21], // atelier
-  aquecido: [23, 21], // administração
-  pontes: [40, 31], // ponte
-  papagaios: [49, 31], // animais
+  contra: [55, 20], // festa
+  teclados: [51, 20], // a aniversariante, do lado do bolo
+  nobre: [55, 21], // festa
+  trapacas: [52, 23], // festa
+  lampadas: [49, 20], // festa
+  moderado: [56, 20], // festa
+  comprido: [52, 24], // festa
+  mari: [56, 21], // festa
+  aquecido: [51, 24], // festa
+  pontes: [56, 23], // festa
+  papagaios: [50, 24], // festa
   scarlett: [60, 18], // palco da taverna
-  formigas: [89, 33], // formigueiro
+  formigas: [48, 20], // festa
 }
 
 /** Um de cada, cada um onde o sabor dele manda. O mel não fica no chão: sai da colmeia do meio. A maçã cai da macieira (`arvore`), o carvão sai do veio quebrado (`minerio`). Cevada, cogumelo e bagas saem de qualquer pé do mapa (`tile`); trigo e cogumelo somem ao ser colhidos, o arbusto fica sem frutinha; x, y é só um deles. */
@@ -106,30 +106,30 @@ export const INGREDIENTES = [
 export const naTaverna = (x: number, y: number) => x >= 46 && x <= 61 && y >= 17 && y <= 25
 export const venceu = (coletados: { size: number }, x: number, y: number) => coletados.size === INGREDIENTES.length && naTaverna(x, y)
 
-/** O que cada anão diz pela fortaleza: conversa do dia a dia, sem pedido de drink nem ingrediente. */
+/** O que cada anão diz na festa de aniversário da Gabi. */
 export const FALAS: Record<string, string> = {
-  hidromel: "Don't wake the dragon. I've been digging quietly next to him for thirty years.",
-  cerveja: 'Hammer on the shoulder, shield on the arm. Whoever passes the barracks trains with me.',
-  grogue: "This fire hasn't gone out since my grandfather's day. And it won't go out in mine.",
-  licor: 'Good soil is worked soil. The wheat from here feeds the whole fortress.',
-  furia: 'I keep an eye on the tavern. A fight in here, I break it up. A fight outside, I watch.',
-  contra: 'Everyone trains in the morning. I train at night. Someone has to be different.',
-  teclados: "I'm taking apart an elven clock. I've figured it all out, only seven pieces left over.",
-  nobre: "Every piece in this museum has a story. I brought most of them, and don't ask how.",
-  trapacas: "Lucky stone, authentic! Only slightly painted. I'll give you a good price.",
-  lampadas: 'I light every lantern in the fortress before the bell. Without me, everyone trips.',
-  moderado: "Don't buy anything from my brother. Buy from me. The difference is I give you change.",
-  comprido: 'From up here I can see the whole farm. That is the perk of being tall.',
-  mari: "Dwarven stitching survives axes, fire and falling down stairs. It just can't survive a rush.",
-  aquecido: 'Now I handle the fortress paperwork. Prescription or receipt, the handwriting is the same.',
-  pontes: 'This bridge can hold a mammoth. I tested it with three dwarves jumping.',
-  papagaios: 'Say hi to my parrots. But careful: they repeat secrets too.',
-  scarlett: 'The stage is mine until the last song. After that, it is still mine.',
-  formigas: 'Every ant here has a name. I am on number four hundred and twelve.',
+  hidromel: 'Happy birthday, Gabi! I dug up the shiniest gem in the mine just for you.',
+  cerveja: 'Raise your mugs! To Gabi, the only dwarf who can fix a lock with a spoon!',
+  grogue: "I forged the candle holders myself. Don't tell anyone I'm smiling.",
+  licor: "The wheat for this cake came from my field. You're welcome, Gabi.",
+  furia: "Free ale for everyone today! ...Well, half price. It's still a party.",
+  contra: "Everyone sings at the end. I'll sing at the start. Happy birthday!",
+  teclados: "All of you came? For me? ...Nobody look, I'm not crying, it's the candle smoke.",
+  nobre: "I brought a gift from the museum. Please don't ask whose museum.",
+  trapacas: "Birthday wishes, two for one! Gabi's are free, of course.",
+  lampadas: 'I lit every candle on the cake. Make a wish before they melt!',
+  moderado: "Happy birthday, Gabi! My brother's gift is fake. Mine is only slightly fake.",
+  comprido: 'From up here I can see the whole party. Best view of the cake, too.',
+  mari: 'I sewed Gabi a party hat. It survives axes, fire and dancing.',
+  aquecido: "Doctor's orders: one slice of cake each. Two for the birthday dwarf.",
+  pontes: 'I once built a bridge out of cupcakes. It held three dwarves. Happy birthday!',
+  papagaios: 'The parrots learned to sing happy birthday. Sadly, so did the dragon.',
+  scarlett: "The stage is Gabi's tonight! ...Until the last song. Then it's mine again.",
+  formigas: 'The ants carried every crumb here in a line. Four hundred and twelve gifts!',
 }
 
 const ZONAS: [string, number, number][] = [
-  ['Mine', 7, 1], ['Barracks', 69.5, 18], ['Forge', 22.5, 7], ['Museum', 74, 15], ['Farm', 28, 27], ['Tavern', 53.5, 17],
+  ['Mine', 7, 1], ['Barracks', 69.5, 18], ['Forge', 22.5, 7], ['Museum', 74, 15], ['Farm', 28, 27], ["Gabi's Birthday", 53.5, 17],
   ['Library', 45.5, 8], ['Alchemist', 22.5, 1], ['Garden', 7.5, 27], ['Animals', 53.5, 27], ['Kitchen', 57.5, 8], ['Anthill', 90.5, 30],
   ['Free Market', 38.5, 38], ['Mushrooms', 5, 39], ['Carpentry', 7.5, 17], ['Common Area', 37.5, 17], ['Administration', 22.5, 17], ['Military Dorm', 80, 17], ['Vault', 69.5, 1], ['Dormitory', 41.5, 1], ['Hallway', 34, 7], ['Hallway', 92, 17], ['Atelier', 86, 17], ['Prison', 86, 1], ['Guard', 90.5, 7], ['Bathroom', 57.5, 1],
 ]
@@ -496,6 +496,30 @@ const PAREDE_CAVADA = grade(['bbbbbbbbbbbbbbbb', 'bbbbbbbxbbbbbbbb', 'bbbbbxxxxb
   'bxxxxxxxxxxxxbbb', 'bbxxxxxxxxxxxxbb', 'bbbxxxxxxxxxxbbb', 'bbbbxxxxxxxxbbbb', 'bbbbbxxbxxxbbbbb', 'bbbbbbbbbxbbbbbb', 'bbbbbbbbbbbbbbbb', 'bbbbbbbbbbbbbbbb'],
 { b: '#2a221d', x: '#120d0a' }) // buraco escuro, borda irregular de rocha arrancada
 
+// Bolo de aniversário da Gabi: três andares de massa creme com cobertura rosa e confeitos, velas listradas. As chamas tremulam no jogo.
+export const BOLO = grade([
+  '................................', '............k..k..k.............', '...........kvkkvkkvk............', '...........kVkkVkkVk............',
+  '...........kvkkvkkvk............', '..........kkVkkVkkVkkk..........', '.........krrrrrrrrrrrrk.........', '.........krrrrrrrrrrrrk.........',
+  '.........krccrbcrcbrcck.........', '.........kccYcccYcccYck.........', '.........kcccccccccccck.........', '.......kkkCCCCCCCCCCCCkkk.......',
+  '......krrrrrrrrrrrrrrrrrrk......', '......krrrrrrrrrrrrrrrrrrk......', '......krccrccrccrccrccrcck......', '......kccccbcccbcccbcccbck......',
+  '......kccYcccYcccYcccYccck......', '......kcccccccccccccccccck......', '...kkkkCCCCCCCCCCCCCCCCCCkkkk...', '..krrrrrrrrrrrrrrrrrrrrrrrrrrk..',
+  '..krrrrrrrrrrrrrrrrrrrrrrrrrrk..', '..krccrccrccrccrccrccrccrccrck..', '..kcccccccccccccccccccccccccck..', '..kcccccccccccccccccccccccccck..',
+  '..kccccbcccbcccbcccbcccbcccbck..', '..kccYcccYcccYcccYcccYcccYccck..', '..kcccccccccccccccccccccccccck..', '.kkCCCCCCCCCCCCCCCCCCCCCCCCCCkk.',
+  'kppppppppppppppppppppppppppppppk', 'kppppppppppppppppppppppppppppppk', '.kkPPPPPPPPPPPPPPPPPPPPPPPPPPkk.', '...kkkkkkkkkkkkkkkkkkkkkkkkkk...',
+], { p: '#d8d8e0', P: '#a0a0ac', c: '#f4e4c4', C: '#d0b88c', r: '#ff6ab0', Y: '#ffd23b', b: '#5cc8e6', v: '#5cc8e6', V: '#ffffff' })
+export const BOLO_EM: [number, number] = [52, 20]
+const VELAS = [12, 15, 18] // colunas das velas no sprite do bolo
+/** Chamas das velas do bolo, tremulando. */
+function velas(ctx: CanvasRenderingContext2D, agora: number) {
+  VELAS.forEach((vx, k) => {
+    const t = Math.floor(agora / 110 + k * 2) % 3
+    ctx.fillStyle = '#ff7a1a'
+    ctx.fillRect(BOLO_EM[0] * T + vx, BOLO_EM[1] * T + 1, 1, 1)
+    ctx.fillStyle = t ? '#fff0a0' : '#ffd23b'
+    ctx.fillRect(BOLO_EM[0] * T + vx + (t === 2 ? 1 : 0), BOLO_EM[1] * T, 1, 1)
+  })
+}
+
 const PROP: Record<string, Grid> = {
   ...MINERIO, ...PEDRAS, '!': MICROFONE, '^': ESTATUA, B: BARRIL, U: icone('m'), C: CALDEIRAO, F: FORJA, L: icone('A'), c: icone('c'), b: icone('b'), g: icone('g'),
   f: CERCA, T: MESA, '[': mesaLonga(2), ']': mesaLonga(3), ';': CADEIRA, $: PEPITA, E: ESTANTE, N: FORNALHA, I: BIGORNA, Y: ARVORE, u: ARBUSTO, l: FLORES,
@@ -509,7 +533,7 @@ const PROP: Record<string, Grid> = {
   Z: grade(BARRACA, { ...BENS, a: '#3a8a2a', A: '#ffd23b', 1: '#5ce6e6', 2: '#e83a1a', 3: '#c070e0' }), // poções
   '(': CARRINHO,
   j: LAPIDARIO, q: MOSTRUARIO, y: GEMAS, i: COLMEIA, e: AMANITA, n: PARDOS,
-  '{': BANCADA_CARP, '}': TABUAS, '<': TORAS, '*': ESCRIVANINHA, '?': BAU, '>': BANCADA_ALQ, '|': POCOES, '/': MATO, k: CAMA, '"': OURO, '0': TINA, _: LATRINA, ':': BACIA, '`': ESTATUA_PEDRA, ')': ESQUELETO, á: TEAR, é: ROLOS, ó: ROCA, í: GRADE, ì: TRANCA, ú: PALHA, ç: PAREDE_CAVADA, ã: PORTEIRA, ü: PORTA_COFRE,
+  '{': BANCADA_CARP, '}': TABUAS, '<': TORAS, '*': ESCRIVANINHA, '?': BAU, '>': BANCADA_ALQ, '|': POCOES, '/': MATO, k: CAMA, '"': OURO, '0': TINA, _: LATRINA, ':': BACIA, '`': ESTATUA_PEDRA, ')': ESQUELETO, á: TEAR, é: ROLOS, ó: ROCA, ò: BOLO, í: GRADE, ì: TRANCA, ú: PALHA, ç: PAREDE_CAVADA, ã: PORTEIRA, ü: PORTA_COFRE,
 }
 const OVELHA = compose([[
   '', '', '', '', '', '....kkkkkk......', '...kwwWwwwk.kk..', '..kwWwwwWwwkddk.', '.kwwwwwwwwwkdedk', '.kwWwwwwWwwkdddk',
@@ -569,11 +593,11 @@ const escondido = (anao: Grid) => {
 // Guarda da prisão: dorme na cama da sala da guarda, com a chave das celas do lado.
 const DEITADO = deitado(dwarfSprite('Torvin the Guard', 'Hammerdwarf', 'dormindo'))
 export const EXTRAS = [
-  { id: 'goblin', nome: 'Grishnak the Goblin', fala: 'Psst... I trade dwarf gold for a sip. Nobody needs to know.', x: 45, y: 41, s: 1, g: GOBLIN },
-  { id: 'elfo', nome: 'Elandor the Elf', fala: 'I came to taste dwarven ale. They say it beats elven wine. I doubt it.', x: 8, y: 33, s: 1, g: ELFO },
-  { id: 'snik', nome: 'Snik the Goblin', fala: 'Trinkets! Shiny stones! Hardly anything stolen!', x: 26, y: 42, s: 1, g: GOBLIN },
-  { id: 'grot', nome: 'Grot the Goblin', fala: "Don't look at my stall. Look over there. ...Done, it's gone.", x: 53, y: 47, s: 1, g: GOBLIN },
-  { id: 'orc', nome: 'Urzog the Orc', fala: 'Orc wants ale. Orc pays with... respect.', x: 32, y: 47, s: 1, g: ORC },
+  { id: 'goblin', nome: 'Grishnak the Goblin', fala: "Psst... I brought a gift. I didn't steal it. Not from here, anyway.", x: 57, y: 20, s: 1, g: GOBLIN },
+  { id: 'elfo', nome: 'Elandor the Elf', fala: "I came for the dwarven ale. The cake, I admit, beats elven wine.", x: 52, y: 25, s: 1, g: ELFO },
+  { id: 'snik', nome: 'Snik the Goblin', fala: "Shiny ribbon for the birthday dwarf! Hardly anything stolen!", x: 57, y: 21, s: 1, g: GOBLIN },
+  { id: 'grot', nome: 'Grot the Goblin', fala: "Don't look at the cake. Look over there. ...Who took a slice?", x: 53, y: 25, s: 1, g: GOBLIN },
+  { id: 'orc', nome: 'Urzog the Orc', fala: "Orc sings for Gabi. Orc sings loud. HAPPY. BIRTHDAY.", x: 54, y: 25, s: 1, g: ORC },
   { id: 'guarda', nome: 'Torvin the Guard', fala: 'Zzz... all locked up... nobody touches my key... zzz.', x: 87, y: 12, s: 1, g: DEITADO, dorme: true },
   { id: 'dragao', nome: 'Ignaroth the Dragon', fala: 'Zzz... who comes near my gold? ...Ah, just a dwarf. Zzz.', x: 12, y: 1, s: 2, g: DRAGAO },
   // presos: atrás da grade, ninguém chega neles; dá para conversar do corredor
@@ -802,6 +826,15 @@ function desenhaMapa() {
   for (const [nome, sx, sy, px] of SALAS) (ctx.font = `${px}px VT323, monospace`), ctx.fillText(nome, sx * T + 8, sy * T + 8)
   const rio = MAPA.flatMap((linha, y) => [...linha].flatMap((ch, x) => (ch === '~' ? [[x, y]] : [])))
   const lavas = MAPA.flatMap((linha, y) => [...linha].flatMap((ch, x) => (ch === 'õ' ? [[x, y]] : [])))
+  // aniversário da Gabi: varal de bandeirinhas coloridas no alto da taverna
+  ctx.fillStyle = '#1b1410'
+  ctx.fillRect(46 * T, 17 * T + 1, 16 * T, 1)
+  for (let bx = 46 * T + 2, k = 0; bx < 62 * T - 4; bx += 7, k++) {
+    ctx.fillStyle = ['#e02a3a', '#ffd23b', '#3a7ae8', '#6cdc4a', '#c070e0'][k % 5]
+    ctx.fillRect(bx, 17 * T + 2, 5, 1)
+    ctx.fillRect(bx + 1, 17 * T + 3, 3, 1)
+    ctx.fillRect(bx + 2, 17 * T + 4, 1, 1)
+  }
   return { mapa: c, soltos, rio, lavas, aves }
 }
 
@@ -815,6 +848,7 @@ export function mapaInteiro(eu?: [number, number], coletados = new Map<string, [
   ctx.drawImage(mapa, 0, 0)
   for (const [ax, ay] of rio) agua(ctx, ax, ay, 0)
   for (const [ax, ay] of lavas) lava(ctx, ax, ay, 0)
+  velas(ctx, 0)
   for (const a of aves) ctx.drawImage(a.quadros[0], a.x, a.y)
   const gente = [...ANOES.map((a) => ({ g: retrato(a), x: LOCAL[a.id][0], y: LOCAL[a.id][1] })), ...EXTRAS]
   const bichos = MAPA.flatMap((l, by) => [...l].flatMap((ch, bx) => (BICHO[ch] ? [{ g: BICHO[ch], x: bx, y: by + 1 - BICHO[ch].length / T }] : [])))
@@ -1068,6 +1102,7 @@ export function modoLivre(palco: HTMLElement, aoVencer: (segundos: number) => vo
     ctx.drawImage(mapa, 0, 0)
     for (const [ax, ay] of rio) agua(ctx, ax, ay, agora)
     for (const [ax, ay] of lavas) lava(ctx, ax, ay, agora)
+    velas(ctx, agora)
     aves.forEach((a, k) => { // cada papagaio bate as asas um pouco a cada 3s, fora de compasso com os vizinhos
       if (a.voa !== undefined) { // espantado: sobe para a direita batendo as asas rápido e some; o poleiro fica
         const t = (agora - a.voa) / 1000

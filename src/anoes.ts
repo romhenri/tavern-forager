@@ -34,4 +34,13 @@ export const ANOES: Anao[] = [
   { id: 'formigas', nome: 'The Ant Master', oficio: 'Mestre', visual: { cabelo: '#f0f0e8', pele: '#f0c8a0', barba: 'curta', roupa: '#7a6a5a' } },
 ]
 
-export const retrato = (a: Anao) => dwarfSprite(a.nome, a.oficio, 'neutro', a.visual)
+// Aniversário: a Gabi vai de chapéu de festa listrado, com pompom.
+const CHAPEU = ['.......kk.......', '......kYYk......', '......krbk......', '.....krbrbk.....']
+const COR_CHAPEU: Record<string, string> = { k: '#1b1410', Y: '#ffd23b', r: '#ff6ab0', b: '#5cc8e6' }
+
+export const retrato = (a: Anao) => {
+  const g = dwarfSprite(a.nome, a.oficio, 'neutro', a.visual)
+  if (a.id === 'teclados') CHAPEU.forEach((r, y) => [...r].forEach((c, x) => c !== '.' && (g[y][x] = COR_CHAPEU[c])))
+  return g
+}
+export const GABI = ANOES.find((a) => a.id === 'teclados')!
